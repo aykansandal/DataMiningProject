@@ -13,7 +13,7 @@ public class Termin {
     }
 
     public void terminLöschen(Termin obj) {
-        obj = null;
+        
     }
     public void terminAktualisieren(Termin obj) {
 
