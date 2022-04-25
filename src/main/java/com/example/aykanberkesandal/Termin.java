@@ -12,8 +12,8 @@ public class Termin {
 
     }
 
-    public void terminLöschen(Termin obj) {
-        obj = null;
+    public void terminLoeschen(Termin obj) {
+
     }
     public void terminAktualisieren(Termin obj) {
 
