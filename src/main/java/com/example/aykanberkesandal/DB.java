@@ -12,8 +12,12 @@ public class DB {
             String url = "jdbc:sqlite:C:\\Users\\Aykan\\IdeaProjects\\190503012_AykanBerkeSandal\\sqlite3\\DB.db";
             // create a connection to the database
             conn = DriverManager.getConnection(url);
-
             System.out.println("Connection to SQLite has been established.");
+            Statement stmt = conn.createStatement();
+            ResultSet res = stmt.executeQuery("SELECT * FROM Person");
+            while(res.next()){
+                System.out.println("PersonID: "+res.getString("PersonID"));
+            }
 
         }
         catch (SQLException e) {
