@@ -10,26 +10,26 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="518.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.aykanberkesandal.Controller">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="518.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.aykanberkesandal.LoginController">
    <children>
       <AnchorPane prefHeight="401.0" prefWidth="204.0" style="-fx-background-color: #278cb3;">
          <children>
             <ImageView fitHeight="228.0" fitWidth="223.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="arzt.png" />
+                  <Image url="@../../../arzt.png" />
                </image>
             </ImageView>
-            <Label layoutX="60.0" layoutY="40.0" text="05xx xxx xx xx">
+            <Label layoutX="60.0" layoutY="40.0" text="05xx xxx xx xx" textFill="WHITE">
                <font>
                   <Font name="Arial Bold Italic" size="12.0" />
                </font>
             </Label>
-            <Label layoutX="14.0" layoutY="67.0" text="aykanberkesandal@gmail.com">
+            <Label layoutX="14.0" layoutY="67.0" text="aykanberkesandal@gmail.com" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="12.0" />
                </font>
             </Label>
-            <Label layoutX="24.0" layoutY="14.0" text="Kontaktdaten für Hilfe:">
+            <Label layoutX="24.0" layoutY="14.0" text="Kontaktdaten für Hilfe:" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>
@@ -38,28 +38,18 @@
       </AnchorPane>
       <AnchorPane prefHeight="400.0" prefWidth="314.0">
          <children>
-            <Label layoutX="16.0" layoutY="209.0" text="Benutzername">
-               <font>
-                  <Font name="Arial Bold" size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="16.0" layoutY="265.0" text="Passwort">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Label>
-            <TextField layoutX="132.0" layoutY="206.0" />
+            <TextField fx:id="tfBenutzername" layoutX="83.0" layoutY="214.0" promptText="Benutzername" />
             <ImageView fitHeight="81.0" fitWidth="78.0" layoutX="118.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="logo.png" />
+                  <Image url="@../../../logo.png" />
                </image>
             </ImageView>
-            <Button layoutX="131.0" layoutY="320.0" mnemonicParsing="false" onAction="#switchToHomepage" style="-fx-background-color: #278cb3;" text="LOGIN">
+            <Button fx:id="buttonLogin" layoutX="131.0" layoutY="320.0" mnemonicParsing="false" onAction="#login" style="-fx-background-color: #278cb3;" text="LOGIN" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="12.0" />
                </font>
             </Button>
-            <PasswordField layoutX="132.0" layoutY="262.0" />
+            <PasswordField fx:id="tfPasswort" layoutX="83.0" layoutY="263.0" promptText="Passwort" />
          </children>
       </AnchorPane>
    </children>
