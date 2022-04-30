@@ -18,17 +18,19 @@ public class SideBarController {
     public static Stage stage;
     private static Scene scene;
     private static Parent root;
-
+    String User = LoginController.currentUser;
     @FXML
     private AnchorPane apScreen;
     @FXML
     public Label lCurrentUser;
 
+
+
     @FXML
     public void initialize() {
+        lCurrentUser.setText(User);
         loadPage("Homepage");
 
-        lCurrentUser.setText(LoginController.currentUser);
     }
 
     @FXML
