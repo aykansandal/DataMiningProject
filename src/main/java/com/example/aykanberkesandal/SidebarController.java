@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 
-public class SideBarController {
+public class SidebarController {
     public static Stage stage;
     private static Scene scene;
     private static Parent root;

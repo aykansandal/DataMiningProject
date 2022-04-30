@@ -50,6 +50,26 @@
                </font>
             </Button>
             <PasswordField fx:id="tfPasswort" layoutX="83.0" layoutY="263.0" promptText="Passwort" />
+            <Label fx:id="lErrorMessage" alignment="CENTER" contentDisplay="CENTER" layoutY="363.0" prefHeight="36.0" prefWidth="314.0" text="Falscher Benutzername oder Passwort." textFill="RED" visible="false" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lErrorMessage2" alignment="CENTER" contentDisplay="CENTER" layoutX="3.0" layoutY="353.0" prefHeight="46.0" prefWidth="314.0" text="Passwortfeld und Benutzernamefeld dürfen nicht leer sein." textFill="RED" visible="false" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lErrorMessage4" alignment="CENTER" contentDisplay="CENTER" layoutY="363.0" prefHeight="36.0" prefWidth="314.0" text="Passwortfeld darf nicht leer sein." textFill="RED" visible="false" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lErrorMessage3" alignment="CENTER" contentDisplay="CENTER" layoutY="363.0" prefHeight="36.0" prefWidth="314.0" text="Benutzernamefeld darf nicht leer sein." textFill="RED" visible="false" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>

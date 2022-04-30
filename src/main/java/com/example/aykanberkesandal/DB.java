@@ -56,10 +56,10 @@ public class DB {
     public static void checkDBStatus(){
         try{
             if(!conn.isClosed()){
-                System.out.println("Database is connected");
+                System.out.println("Database is connected.");
             }
             else{
-                System.out.println("Database is not connected");
+                System.out.println("Database is not connected.");
             }
         }
         catch(SQLException e){
