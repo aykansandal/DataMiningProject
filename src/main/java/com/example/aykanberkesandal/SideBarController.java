@@ -3,69 +3,62 @@ package com.example.aykanberkesandal;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
+
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
+
 import javafx.stage.Stage;
-import org.w3c.dom.events.MouseEvent;
-
 import java.io.IOException;
-import java.net.URL;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.ResourceBundle;
 
-public class SideBarController implements Initializable {
-    private Stage stage;
+
+public class SideBarController {
+    public static Stage stage;
     private static Scene scene;
     private static Parent root;
-    public static PreparedStatement pstmt;
-    public static ResultSet rs;
-    @FXML
-    private HBox hboxAddieren;
-    @FXML
-    private HBox hboxListen;
-    @FXML
-    private HBox hboxLoeschen;
+
     @FXML
     private AnchorPane apScreen;
-    @Override
-    public void initialize(URL url, ResourceBundle rb){
+    @FXML
+    public Label lCurrentUser;
 
+    @FXML
+    public void initialize() {
+        loadPage("Homepage");
+
+        lCurrentUser.setText(LoginController.currentUser);
     }
 
     @FXML
-    private void loadHomepage(ActionEvent event){
-
+    private void loadHomepage(ActionEvent event) {
         stage.setTitle("Homepage");
-        loadPage("homepage");
+        loadPage("Homepage");
     }
 
     @FXML
-    private void loadListpage(ActionEvent event){
-        stage =(Stage)((Node)event.getSource()).getScene().getWindow();
+    private void loadListpage(ActionEvent event) {
+        //stage =(Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setTitle("Listen");
         loadPage("Listen");
     }
 
     @FXML
-    private void loadAddpage(ActionEvent event){
-        stage =(Stage)((Node)event.getSource()).getScene().getWindow();
+    private void loadAddpage(ActionEvent event) {
+        //stage =(Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setTitle("Addieren");
         loadPage("Addieren");
     }
 
     @FXML
-    private void loadDeletepage(ActionEvent event){
-        stage =(Stage)((Node)event.getSource()).getScene().getWindow();
+    private void loadDeletepage(ActionEvent event) {
+        //stage =(Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setTitle("Löschen");
         loadPage("Loeschen");
     }
 
-    private void loadPage(String page){
+    private void loadPage(String page) {
         Parent root = null;
         try {
             root = FXMLLoader.load(getClass().getResource(page+".fxml"));
@@ -77,4 +70,15 @@ public class SideBarController implements Initializable {
         }
     }
 
+    public void switchToLoginScreen(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("LoginScreen.fxml"));
+        stage =(Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setTitle("Login");
+        LoginController.currentUser = "";
+        stage.setResizable(false);
+        scene = new Scene(root);
+        stage.hide();
+        stage.setScene(scene);
+        stage.show();
+    }
 }

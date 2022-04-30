@@ -14,19 +14,10 @@ import java.sql.*;
 import java.util.Set;
 
 public class DB {
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
-
     public static Connection conn = null;
     public static Statement stmt;
-
-    @FXML
-    private TextField tfBenutzername;
-    @FXML
-    private TextField tfPasswort;
-    @FXML
-    private Button buttonLogin;
+    public  static PreparedStatement pstmt;
+    public  static ResultSet rs;
 
     public static void connect() {
         try {
@@ -76,6 +67,21 @@ public class DB {
         }
     }
 
+    public static Boolean checkLogin(String benutzername, String passwort) {
+        String query = "SELECT benutzername, passwort FROM Person WHERE benutzername = ? AND passwort = ?";
+        try {
+            pstmt = DB.conn.prepareStatement(query);
+            pstmt.setString(1, benutzername);
+            pstmt.setString(2, passwort);
+            rs = pstmt.executeQuery();
+            if(rs.next())
+                return true;
+        }
+        catch (Exception e) {
+
+        }
+        return false;
+    }
 
 
 

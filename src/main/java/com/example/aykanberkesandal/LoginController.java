@@ -28,7 +28,7 @@ public class LoginController {
 
 
 
-    public void switchToMainpage(ActionEvent event) throws IOException {
+    public void switchToHomepage(ActionEvent event) throws IOException {
         root = FXMLLoader.load(Application.class.getResource("Mainpage.fxml"));
         System.out.println(root);
         stage =(Stage)(buttonLogin.getScene().getWindow());
@@ -47,7 +47,7 @@ public class LoginController {
                 System.out.println("ok");
                 currentUser = tfBenutzername.getText();
                 SideBarController.stage =(Stage)(buttonLogin.getScene().getWindow());
-                switchToMainpage(event);
+                switchToHomepage(event);
             }
             // TODO: else - alert
         }
