@@ -74,13 +74,7 @@ public class LoginController {
         ft4.setAutoReverse(false);
     }
 
-
-
-
-
-
-
-        public void switchToHomepage(ActionEvent event) throws IOException {
+    public void switchToHomepage(ActionEvent event) throws IOException {
         root = FXMLLoader.load(Application.class.getResource("Mainpage.fxml"));
         System.out.println(root);
         stage =(Stage)(buttonLogin.getScene().getWindow());

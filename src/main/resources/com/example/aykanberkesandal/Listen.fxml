@@ -4,10 +4,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1120.0" style="-fx-background-color: #97adc4;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1120.0" style="-fx-background-color: #97adc4;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.aykanberkesandal.ListPageController">
    <children>
-      <Button layoutX="240.0" mnemonicParsing="false" prefHeight="120.0" prefWidth="160.0" style="-fx-background-color: #268cb4; -fx-border-color: white; -fx-border-width: 0px 3px 0px 0px;" text="Liste der Patienten" textFill="WHITE" wrapText="true">
+      <Button layoutX="240.0" mnemonicParsing="false" onAction="#loadPatientList" prefHeight="120.0" prefWidth="160.0" style="-fx-background-color: #268cb4; -fx-border-color: white; -fx-border-width: 0px 3px 0px 0px;" text="Liste der Patienten" textFill="WHITE" wrapText="true">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
@@ -27,5 +26,6 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Button>
+      <AnchorPane fx:id="apListen" layoutY="120.0" prefHeight="600.0" prefWidth="1120.0" />
    </children>
 </AnchorPane>
