@@ -11,7 +11,7 @@
    <children>
       <VBox prefHeight="480.0" prefWidth="160.0" style="-fx-background-color: #268cb4;">
          <children>
-            <Button mnemonicParsing="false" onAction="#loadHomepage" prefHeight="120.0" prefWidth="160.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 4px 0px;" text="Homepage" textFill="WHITE">
+            <Button mnemonicParsing="false" onAction="#loadHomepage" prefHeight="120.0" prefWidth="160.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 4px 0px;" text="Startzeite" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font></Button>

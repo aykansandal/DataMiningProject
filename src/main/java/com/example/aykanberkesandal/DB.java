@@ -19,6 +19,8 @@ public class DB {
     public  static PreparedStatement pstmt;
     public  static ResultSet rs;
 
+    //TODO:Update-delete-insert
+
     public static void connect() {
         try {
             // DB Parameter
@@ -27,11 +29,7 @@ public class DB {
             conn = DriverManager.getConnection(url);
             checkDBStatus();
 
-            /*Statement stmt = conn.createStatement();
-            ResultSet res = stmt.executeQuery("SELECT * FROM Person");
-            while(res.next()){
-                System.out.println("PersonID: "+res.getString("PersonID") + "Bruh:" + res.getString("Field2"));
-            }*/
+
         }
         catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -81,6 +79,49 @@ public class DB {
 
         }
         return false;
+    }
+
+    public static void insertPerson(int personID, String benutzername, String passwort) {
+        String query = "INSERT INTO Person(PersonID,Benutzername,Passwort) VALUES(?,?,?)";
+
+        try {
+            pstmt = DB.conn.prepareStatement(query);
+            pstmt.setInt(1, personID);
+            pstmt.setString(2, benutzername);
+            pstmt.setString(3, passwort);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void deletePerson(int personID) {
+        String query = "DELETE FROM Person WHERE personID = ?";
+
+        try {
+            pstmt = DB.conn.prepareStatement(query);
+            pstmt.setInt(1, personID);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void printPersonInfo(int personID) {
+        String query = "SELECT * FROM Person WHERE personID = ?";
+
+        try {
+            pstmt = DB.conn.prepareStatement(query);
+            pstmt.setInt(1, personID);
+            rs = pstmt.executeQuery();
+            while(rs.next()){
+                System.out.println("PersonID:" + rs.getInt("personID") + "|" + "Benutzername:" + rs.getString("benutzername") + "|" + "Passwort:" + rs.getString("passwort"));
+            }
+        }
+        catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
     }
 
 

@@ -76,9 +76,8 @@ public class LoginController {
 
     public void switchToHomepage(ActionEvent event) throws IOException {
         root = FXMLLoader.load(Application.class.getResource("Mainpage.fxml"));
-        System.out.println(root);
         stage =(Stage)(buttonLogin.getScene().getWindow());
-        stage.setTitle("Homepage");
+        stage.setTitle("Startzeite");
         //stage.setResizable(false); TODO: Decide if you want it resizable
         scene = new Scene(root);
         //stage.hide();  TODO: <-
@@ -91,7 +90,6 @@ public class LoginController {
         lErrorMessage.setVisible(false);
         try {
             if(DB.checkLogin(tfBenutzername.getText(),tfPasswort.getText())){
-                System.out.println("ok");
                 currentUser = tfBenutzername.getText();
                 SidebarController.stage =(Stage)(buttonLogin.getScene().getWindow());
                 switchToHomepage(event);
@@ -109,11 +107,10 @@ public class LoginController {
                 lErrorMessage4.setVisible(true);
                 ft4.play();
             }
-            else{
+            else {
                 lErrorMessage.setVisible(true);
                 ft.play();
             }
-            // TODO: else - alert
         }
         catch (Exception e) {
         }

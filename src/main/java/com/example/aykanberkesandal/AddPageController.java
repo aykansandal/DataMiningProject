@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -18,21 +19,31 @@ public class AddPageController {
     private static Parent root;
 
     @FXML
-    private AnchorPane apAddieren;
+    private TextField tfPatientPersonID;
+    @FXML
+    private TextField tfPatientBenutzername;
+    @FXML
+    private TextField tfPatientPasswort;
 
     @FXML
+    private AnchorPane apPatientAddieren;
+
+    @FXML
+    private void clickPatientAddieren(ActionEvent event) {
+        apPatientAddieren.setVisible(true);
+    }
+
+    @FXML
+    private void addPatient(ActionEvent event){
+        DB.insertPerson(Integer.parseInt(tfPatientPersonID.getText()),tfPatientBenutzername.getText(),tfPatientPasswort.getText());
+        DB.printPersonInfo(Integer.parseInt(tfPatientPersonID.getText()));
+        System.out.println("Person wurde zum Datenbank addiert.");
+    }
+
+
+    /*@FXML
     private void loadPatientAdd(ActionEvent event) {
-        //stage =(Stage)((Node)event.getSource()).getScene().getWindow();
         loadFunction("PatientAddieren");
-        //Parent root = null;
-        /*try {
-            root = FXMLLoader.load(getClass().getResource("PatientAddieren.fxml"));
-            apAddieren.getChildren().removeAll();
-            apAddieren.getChildren().add(root);
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }*/
     }
 
 
@@ -46,5 +57,6 @@ public class AddPageController {
         catch (IOException e) {
             e.printStackTrace();
         }
-    }
+    }*/
+
 }

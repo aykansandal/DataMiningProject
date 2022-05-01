@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -16,33 +17,21 @@ public class DeletePageController {
     private static Parent root;
 
     @FXML
-    private AnchorPane apLoeschen;
+    private TextField tfPatientPersonID;
+    @FXML
+    private AnchorPane apPatientLoeschen;
+
 
     @FXML
-    private void loadPatientDelete(ActionEvent event) {
-        //stage =(Stage)((Node)event.getSource()).getScene().getWindow();
-        loadFunction("PatientLoeschen");
-        //Parent root = null;
-        /*try {
-            root = FXMLLoader.load(getClass().getResource("PatientAddieren.fxml"));
-            apAddieren.getChildren().removeAll();
-            apAddieren.getChildren().add(root);
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }*/
+    private void clickPatientLoeschen(ActionEvent event) {
+        apPatientLoeschen.setVisible(true);
     }
 
-
-    private void loadFunction(String page) {
-        Parent root = null;
-        try {
-            root = FXMLLoader.load(getClass().getResource(page+".fxml"));
-            apLoeschen.getChildren().removeAll();
-            apLoeschen.getChildren().add(root);
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
+    @FXML
+    private void deletePatient(ActionEvent event){
+        DB.printPersonInfo(Integer.parseInt(tfPatientPersonID.getText()));
+        DB.deletePerson(Integer.parseInt(tfPatientPersonID.getText()));
+        System.out.println("Patient wurde vom Datenbank geloescht.");
     }
+
 }

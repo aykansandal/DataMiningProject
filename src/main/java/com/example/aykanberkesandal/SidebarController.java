@@ -35,7 +35,7 @@ public class SidebarController {
 
     @FXML
     private void loadHomepage(ActionEvent event) {
-        stage.setTitle("Homepage");
+        stage.setTitle("Startzeite");
         loadPage("Homepage");
     }
 
