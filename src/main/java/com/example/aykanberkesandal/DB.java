@@ -54,10 +54,10 @@ public class DB {
     public static void checkDBStatus(){
         try{
             if(!conn.isClosed()){
-                System.out.println("Database is connected.");
+                System.out.println("Die Datenbank ist verbunden.");
             }
             else{
-                System.out.println("Database is not connected.");
+                System.out.println("Die Datenbank is nicht verbunden.");
             }
         }
         catch(SQLException e){
@@ -123,45 +123,4 @@ public class DB {
         }
 
     }
-
-
-
-
-    /*public boolean checkLogin(String benutzername, String passwort){
-        PreparedStatement preparedStatement;
-        ResultSet resultSet;
-        String query = "SELECT benutzername, passwort FROM Person WHERE benutzername = ? AND passwort = ?";
-        try {
-            preparedStatement = conn.prepareStatement(query);
-            preparedStatement.setString(1,benutzername);
-            preparedStatement.setString(2,passwort);
-            resultSet = preparedStatement.executeQuery();
-
-            if(resultSet.next())
-                return true;
-            else
-                return false;
-        }
-        catch (Exception e){
-            return false;
-        }
-        finally {
-            preparedStatement.close();
-            resultSet.close();
-        }
-    }*/
-
-    /*public static boolean checkLogin(String benutzername, String passwort){
-        String query = "SELECT benutzername, passwort FROM Person WHERE benutzername = ? AND passwort = ?;";
-        PreparedStatement.setString(1, benutzername);
-        PreparedStatement.setString(2, passwort);
-
-        ResultSet res = stmt.executeQuery(query);
-        while(res.next()) {
-            System.out.println("Login erfolgreich");
-            return true;
-        }
-        return false;
-    }*/
-
 }

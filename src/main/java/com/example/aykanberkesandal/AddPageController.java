@@ -36,8 +36,9 @@ public class AddPageController {
     @FXML
     private void addPatient(ActionEvent event){
         DB.insertPerson(Integer.parseInt(tfPatientPersonID.getText()),tfPatientBenutzername.getText(),tfPatientPasswort.getText());
+        System.out.println("----------------------------------------------------------\n" + "Informationen zur Person, die zur Datenbank addiert wurde:");
         DB.printPersonInfo(Integer.parseInt(tfPatientPersonID.getText()));
-        System.out.println("Person wurde zum Datenbank addiert.");
+        System.out.println("----------------------------------------------------------");
     }
 
 

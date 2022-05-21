@@ -29,9 +29,10 @@ public class DeletePageController {
 
     @FXML
     private void deletePatient(ActionEvent event){
+        System.out.println("----------------------------------------------------------\n" + "Informationen zur Person, die von der Datenbank geloescht wurde:");
         DB.printPersonInfo(Integer.parseInt(tfPatientPersonID.getText()));
         DB.deletePerson(Integer.parseInt(tfPatientPersonID.getText()));
-        System.out.println("Patient wurde vom Datenbank geloescht.");
+        System.out.println("----------------------------------------------------------");
     }
 
 }

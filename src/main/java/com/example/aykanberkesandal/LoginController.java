@@ -92,10 +92,11 @@ public class LoginController {
             if(DB.checkLogin(tfBenutzername.getText(),tfPasswort.getText())){
                 currentUser = tfBenutzername.getText();
                 SidebarController.stage =(Stage)(buttonLogin.getScene().getWindow());
+                System.out.println("Login erfolgreich");
                 switchToHomepage(event);
             }
             else if(tfBenutzername.getText().isEmpty() && tfPasswort.getText().isEmpty()){
-                //TODO: Art arda tıklanınca animasyonların birbirine karışması durumunu engellemeye çalış
+                //TODO: Try to avoid cluttering animations when clicking repeatedly.
                 lErrorMessage2.setVisible(true);
                 ft2.play();
             }

@@ -20,17 +20,7 @@ public class ListPageController {
 
     @FXML
     private void loadPatientList(ActionEvent event) {
-        //stage =(Stage)((Node)event.getSource()).getScene().getWindow();
         loadFunction("PatientListen");
-        //Parent root = null;
-        /*try {
-            root = FXMLLoader.load(getClass().getResource("PatientAddieren.fxml"));
-            apAddieren.getChildren().removeAll();
-            apAddieren.getChildren().add(root);
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }*/
     }
 
 
