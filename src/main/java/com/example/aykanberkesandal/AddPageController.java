@@ -29,7 +29,7 @@ public class AddPageController {
     private AnchorPane apPatientAddieren;
 
     @FXML
-    private void clickPatientAddieren(ActionEvent event) {
+    private void clickPatientHinzufuegen(ActionEvent event) {
         apPatientAddieren.setVisible(true);
     }
 

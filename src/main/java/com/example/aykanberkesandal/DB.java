@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import java.lang.String;
 
 import java.io.IOException;
 import java.sql.*;
@@ -101,6 +102,40 @@ public class DB {
         try {
             pstmt = DB.conn.prepareStatement(query);
             pstmt.setInt(1, personID);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void insertDoctor(int ArztID,String Vorname, String Name, String Telefonnummer, String Adresse, String ID, String SVN, String Benutzername, String Passwort) {
+        String query = "INSERT INTO Person(ArztID,Vorname,Name,Telefonnummer,Adresse,ID,SVN,Benutzername,Passwort) VALUES(?,?,?,?,?,?,?,?,?)";
+
+        try {
+            pstmt = DB.conn.prepareStatement(query);
+            pstmt.setInt(1, ArztID);
+            pstmt.setString(2, Vorname);
+            pstmt.setString(3, Name);
+            pstmt.setString(4, Telefonnummer);
+            pstmt.setString(5, Adresse);
+            pstmt.setString(6, ID);
+            pstmt.setString(7, SVN);
+            pstmt.setString(8, Benutzername);
+            pstmt.setString(9, Passwort);
+
+
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void deleteDoctor(int doctorID) {
+        String query = "DELETE FROM Person WHERE ArztID = ?";
+
+        try {
+            pstmt = DB.conn.prepareStatement(query);
+            pstmt.setInt(1, doctorID);
             pstmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());

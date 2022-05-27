@@ -8,22 +8,22 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1120.0" style="-fx-background-color: #97adc4;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.aykanberkesandal.AddPageController">
    <children>
-      <Button layoutX="240.0" mnemonicParsing="false" onAction="#clickPatientAddieren" prefHeight="120.0" prefWidth="160.0" style="-fx-background-color: #268cb4; -fx-border-color: white; -fx-border-width: 0px 3px 0px 0px;" text="Vpersonal Addieren" textFill="WHITE" wrapText="true">
+      <Button layoutX="240.0" mnemonicParsing="false" onAction="#clickPatientHinzufuegen" prefHeight="120.0" prefWidth="160.0" style="-fx-background-color: #268cb4; -fx-border-color: white; -fx-border-width: 0px 3px 0px 0px;" text="Patient Hinzufügen" textFill="WHITE" wrapText="true">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Button layoutX="400.0" mnemonicParsing="false" prefHeight="120.0" prefWidth="160.0" style="-fx-background-color: #268cb4; -fx-border-color: white; -fx-border-width: 0px 3px 0px 0px;" text="Arzt Addieren" textFill="WHITE" wrapText="true">
+      <Button layoutX="400.0" mnemonicParsing="false" prefHeight="120.0" prefWidth="160.0" style="-fx-background-color: #268cb4; -fx-border-color: white; -fx-border-width: 0px 3px 0px 0px;" text="Arzt Hinzufügen" textFill="WHITE" wrapText="true">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Button layoutX="560.0" mnemonicParsing="false" prefHeight="120.0" prefWidth="160.0" style="-fx-background-color: #268cb4; -fx-border-color: white; -fx-border-width: 0px 3px 0px 0px;" text="Sekreteriat Addieren" textFill="WHITE" wrapText="true">
+      <Button layoutX="560.0" mnemonicParsing="false" prefHeight="120.0" prefWidth="160.0" style="-fx-background-color: #268cb4; -fx-border-color: white; -fx-border-width: 0px 3px 0px 0px;" text="Sekreteriat Hinzufügen" textFill="WHITE" wrapText="true">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Button layoutX="720.0" mnemonicParsing="false" prefHeight="120.0" prefWidth="160.0" style="-fx-background-color: #268cb4; -fx-border-color: white; -fx-border-width: 0px 3px 0px 0px;" text="Patient Addieren" textFill="WHITE" wrapText="true">
+      <Button layoutX="720.0" mnemonicParsing="false" prefHeight="120.0" prefWidth="160.0" style="-fx-background-color: #268cb4; -fx-border-color: white; -fx-border-width: 0px 3px 0px 0px;" text="Vpersonal Hinzufügen" textFill="WHITE" wrapText="true">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
@@ -33,22 +33,22 @@
             <TextField fx:id="tfPatientBenutzername" layoutX="485.0" layoutY="200.0" />
             <TextField fx:id="tfPatientPersonID" layoutX="180.0" layoutY="200.0" />
             <TextField fx:id="tfPatientPasswort" layoutX="791.0" layoutY="200.0" />
-            <Label layoutX="169.0" layoutY="169.0" text="Addiere PersonID:" textFill="WHITE">
+            <Label layoutX="157.0" layoutY="169.0" text="Hinzufüge PersonID:" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="449.0" layoutY="169.0" text="Addiere Benutzername:" textFill="WHITE">
+            <Label layoutX="437.0" layoutY="169.0" text="Hinzufüge Benutzername:" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="780.0" layoutY="169.0" text="Addiere Passwort:" textFill="WHITE">
+            <Label layoutX="769.0" layoutY="169.0" text="Hinzufüge Passwort:" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <Button layoutX="502.0" layoutY="71.0" mnemonicParsing="false" onAction="#addPatient" prefHeight="30.0" prefWidth="116.0" style="-fx-background-color: #268cb4; -fx-border-color: white; -fx-border-width: 3px;" text="Addiere" textFill="WHITE" wrapText="true">
+            <Button layoutX="495.0" layoutY="72.0" mnemonicParsing="false" onAction="#addPatient" prefHeight="50.0" prefWidth="130.0" style="-fx-background-color: #268cb4; -fx-border-color: white; -fx-border-width: 3px;" text="Hinzufüge" textFill="WHITE" wrapText="true">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>

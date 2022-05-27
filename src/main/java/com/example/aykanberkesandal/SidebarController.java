@@ -49,8 +49,8 @@ public class SidebarController {
     @FXML
     private void loadAddpage(ActionEvent event) {
         //stage =(Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setTitle("Addieren");
-        loadPage("Addieren");
+        stage.setTitle("Hinzufügen");
+        loadPage("Hinzufuegen");
     }
 
     @FXML

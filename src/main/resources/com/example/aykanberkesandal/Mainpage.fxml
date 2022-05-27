@@ -20,7 +20,7 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Button>
-            <Button layoutX="10.0" layoutY="130.0" mnemonicParsing="false" onAction="#loadAddpage" prefHeight="120.0" prefWidth="160.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 4px 0px;" text="Addieren" textFill="WHITE">
+            <Button layoutX="10.0" layoutY="130.0" mnemonicParsing="false" onAction="#loadAddpage" prefHeight="120.0" prefWidth="160.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 4px 0px;" text="Hinzufügen" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
