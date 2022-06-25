@@ -13,34 +13,79 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Button layoutX="400.0" mnemonicParsing="false" prefHeight="120.0" prefWidth="160.0" style="-fx-background-color: #268cb4; -fx-border-color: white; -fx-border-width: 0px 3px 0px 0px;" text="Arzt Löschen" textFill="WHITE" wrapText="true">
+      <Button layoutX="400.0" mnemonicParsing="false" onAction="#clickArztLoeschen" prefHeight="120.0" prefWidth="160.0" style="-fx-background-color: #268cb4; -fx-border-color: white; -fx-border-width: 0px 3px 0px 0px;" text="Arzt Löschen" textFill="WHITE" wrapText="true">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Button layoutX="560.0" mnemonicParsing="false" prefHeight="120.0" prefWidth="160.0" style="-fx-background-color: #268cb4; -fx-border-color: white; -fx-border-width: 0px 3px 0px 0px;" text="Sekreteriat Löschen" textFill="WHITE" wrapText="true">
+      <Button layoutX="560.0" mnemonicParsing="false" onAction="#clickSekreteriatLoeschen" prefHeight="120.0" prefWidth="160.0" style="-fx-background-color: #268cb4; -fx-border-color: white; -fx-border-width: 0px 3px 0px 0px;" text="Sekreteriat Löschen" textFill="WHITE" wrapText="true">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Button layoutX="720.0" mnemonicParsing="false" prefHeight="120.0" prefWidth="160.0" style="-fx-background-color: #268cb4; -fx-border-color: white; -fx-border-width: 0px 3px 0px 0px;" text="Vpersonal Löschen" textFill="WHITE" wrapText="true">
+      <Button layoutX="720.0" mnemonicParsing="false" onAction="#clickVerwaltungspersonalLoeschen" prefHeight="120.0" prefWidth="160.0" style="-fx-background-color: #268cb4; -fx-border-color: white; -fx-border-width: 0px 3px 0px 0px;" text="Vpersonal Löschen" textFill="WHITE" wrapText="true">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <AnchorPane fx:id="apPatientLoeschen" layoutX="-6.0" layoutY="120.0" prefHeight="600.0" prefWidth="1120.0" visible="false">
+      <AnchorPane fx:id="apPatientLoeschen" layoutY="120.0" prefHeight="530.0" prefWidth="1120.0" visible="false">
          <children>
-            <Button layoutX="503.0" layoutY="71.0" mnemonicParsing="false" onAction="#deletePatient" prefHeight="30.0" prefWidth="116.0" style="-fx-background-color: #268cb4; -fx-border-color: white; -fx-border-width: 3px;" text="Lösche" textFill="WHITE" wrapText="true">
+            <Button layoutX="475.0" layoutY="69.0" mnemonicParsing="false" onAction="#deletePatient" prefHeight="50.0" prefWidth="170.0" style="-fx-background-color: #268cb4; -fx-border-color: white; -fx-border-width: 3px;" text="Lösche Patient" textFill="WHITE" wrapText="true">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Button>
-            <TextField fx:id="tfPatientPersonID" layoutX="486.0" layoutY="200.0" />
-            <Label layoutX="466.0" layoutY="169.0" text="Geben Sie PersonID:" textFill="WHITE">
+            <TextField fx:id="tfPatientID" layoutX="485.0" layoutY="181.0" />
+            <Label layoutX="463.0" layoutY="151.0" text="Geben Sie PatientID:" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
          </children></AnchorPane>
+      <AnchorPane fx:id="apArztLoeschen" layoutY="120.0" prefHeight="530.0" prefWidth="1120.0" visible="false">
+         <children>
+            <Button layoutX="475.0" layoutY="69.0" mnemonicParsing="false" onAction="#deleteDoctor" prefHeight="50.0" prefWidth="170.0" style="-fx-background-color: #268cb4; -fx-border-color: white; -fx-border-width: 3px;" text="Lösche Arzt" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Button>
+            <TextField fx:id="tfArztID" layoutX="485.0" layoutY="181.0" />
+            <Label layoutX="477.0" layoutY="150.0" text="Geben Sie ArztID:" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="apSekreteriatLoeschen" layoutY="120.0" prefHeight="530.0" prefWidth="1120.0" visible="false">
+         <children>
+            <Button layoutX="475.0" layoutY="69.0" mnemonicParsing="false" onAction="#deleteSecretary" prefHeight="50.0" prefWidth="170.0" style="-fx-background-color: #268cb4; -fx-border-color: white; -fx-border-width: 3px;" text="Lösche Sekreteriat" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Button>
+            <TextField fx:id="tfSekreteriatID" layoutX="485.0" layoutY="181.0" />
+            <Label layoutX="445.0" layoutY="150.0" text="Geben Sie SekreteriatID:" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="apVerwaltungspersonalLoeschen" layoutY="120.0" prefHeight="530.0" prefWidth="1120.0" visible="false">
+         <children>
+            <Button layoutX="439.0" layoutY="71.0" mnemonicParsing="false" onAction="#deleteManagementPersonnel" prefHeight="50.0" prefWidth="241.0" style="-fx-background-color: #268cb4; -fx-border-color: white; -fx-border-width: 3px;" text="Lösche Verwaltungspersonal" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Button>
+            <TextField fx:id="tfVerwaltungspersonalID" layoutX="485.0" layoutY="181.0" />
+            <Label layoutX="397.0" layoutY="150.0" text="Geben Sie VerwaltungspersonalID:" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

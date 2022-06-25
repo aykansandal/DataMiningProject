@@ -108,6 +108,59 @@ public class DB {
         }
     }
 
+    public static void insertPatient(int PatientID,String Vorname, String Name, String Telefonnummer, String Adresse, String ID, String SVN, String Benutzername, String Passwort) {
+        String query = "INSERT INTO Patient(PatientID,Vorname,Name,Telefonnummer,Adresse,ID,SVN,Benutzername,Passwort) VALUES(?,?,?,?,?,?,?,?,?)";
+
+        try {
+            pstmt = DB.conn.prepareStatement(query);
+            pstmt.setInt(1, PatientID);
+            pstmt.setString(2, Vorname);
+            pstmt.setString(3, Name);
+            pstmt.setString(4, Telefonnummer);
+            pstmt.setString(5, Adresse);
+            pstmt.setString(6, ID);
+            pstmt.setString(7, SVN);
+            pstmt.setString(8, Benutzername);
+            pstmt.setString(9, Passwort);
+
+
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void insertPatientUsernamePassword(int BenutzerID, String Benutzername, String Passwort){
+        String query =  "INSERT INTO Benutzer(BenutzerID,Benutzername,Passwort,Rolle) VALUES (?,?,?,?)";
+
+                try {
+                    pstmt = DB.conn.prepareStatement(query);
+                    pstmt.setInt(1, BenutzerID);
+                    pstmt.setString(2, Benutzername);
+                    pstmt.setString(3, Passwort);
+                    pstmt.setString(3, "Patient");
+
+                    pstmt.executeUpdate();
+                }
+                catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+    }
+
+
+    public static void deletePatient(int patientID) {
+        String query = "DELETE FROM Patient WHERE PatientID = ?";
+
+        try {
+            pstmt = DB.conn.prepareStatement(query);
+            pstmt.setInt(1, patientID);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+
     public static void insertDoctor(int ArztID,String Vorname, String Name, String Telefonnummer, String Adresse, String ID, String SVN, String Benutzername, String Passwort) {
         String query = "INSERT INTO Arzt(ArztID,Vorname,Name,Telefonnummer,Adresse,ID,SVN,Benutzername,Passwort) VALUES(?,?,?,?,?,?,?,?,?)";
 
@@ -131,7 +184,7 @@ public class DB {
     }
 
     public static void deleteDoctor(int doctorID) {
-        String query = "DELETE FROM Person WHERE ArztID = ?";
+        String query = "DELETE FROM Arzt WHERE ArztID = ?";
 
         try {
             pstmt = DB.conn.prepareStatement(query);
@@ -165,7 +218,7 @@ public class DB {
     }
 
     public static void deleteSecretary(int secretaryID) {
-        String query = "DELETE FROM Person WHERE SekreteriatID = ?";
+        String query = "DELETE FROM Sekreteriat WHERE SekreteriatID = ?";
 
         try {
             pstmt = DB.conn.prepareStatement(query);
@@ -199,7 +252,7 @@ public class DB {
     }
 
     public static void deleteManagementPersonnel(int secretaryID) {
-        String query = "DELETE FROM Person WHERE VerwaltungspersonalID = ?";
+        String query = "DELETE FROM Verwaltungspersonal WHERE VerwaltungspersonalID = ?";
 
         try {
             pstmt = DB.conn.prepareStatement(query);
