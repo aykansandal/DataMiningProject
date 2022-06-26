@@ -1,4 +1,6 @@
 package com.example.aykanberkesandal;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -146,9 +148,40 @@ public class DB {
                     System.out.println(e.getMessage());
                 }
     }
+    public static void insertDecreasedPatientID(){
+        int patientID = decreasePatientID();
+        String query = "UPDATE sqlite_sequence SET seq = ? WHERE name = 'Patient'";
+        try {
+            pstmt = DB.conn.prepareStatement(query);
+            pstmt.setInt(1, patientID);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
 
+    }
+    public static int decreasePatientID(){
+        int id = 0;
+        String query = "SELECT seq FROM sqlite_sequence WHERE name = 'Patient'";
+
+        try {
+            pstmt = DB.conn.prepareStatement(query);
+            rs = pstmt.executeQuery();
+
+            while(rs.next()){
+            id = rs.getInt("seq") - 1;
+
+            }
+
+        }
+        catch(SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return id;
+    }
 
     public static void deletePatient(int patientID) {
+        insertDecreasedPatientID();
         String query = "DELETE FROM Patient WHERE PatientID = ?";
 
         try {
@@ -183,7 +216,40 @@ public class DB {
         }
     }
 
+    public static void insertDecreasedDoctorID(){
+        int doctorID = decreaseDoctorID();
+        String query = "UPDATE sqlite_sequence SET seq = ? WHERE name = 'Arzt'";
+        try {
+            pstmt = DB.conn.prepareStatement(query);
+            pstmt.setInt(1, doctorID);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+    public static int decreaseDoctorID(){
+        int id = 0;
+        String query = "SELECT seq FROM sqlite_sequence WHERE name = 'Arzt'";
+
+        try {
+            pstmt = DB.conn.prepareStatement(query);
+            rs = pstmt.executeQuery();
+
+            while(rs.next()){
+                id = rs.getInt("seq") - 1;
+
+            }
+
+        }
+        catch(SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return id;
+    }
+
     public static void deleteDoctor(int doctorID) {
+        insertDecreasedDoctorID();
         String query = "DELETE FROM Arzt WHERE ArztID = ?";
 
         try {
@@ -217,7 +283,40 @@ public class DB {
         }
     }
 
+    public static void insertDecreasedSecretaryID(){
+        int secretaryID = decreaseSecretaryID();
+        String query = "UPDATE sqlite_sequence SET seq = ? WHERE name = 'Sekreteriat'";
+        try {
+            pstmt = DB.conn.prepareStatement(query);
+            pstmt.setInt(1, secretaryID);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+    public static int decreaseSecretaryID(){
+        int id = 0;
+        String query = "SELECT seq FROM sqlite_sequence WHERE name = 'Sekreteriat'";
+
+        try {
+            pstmt = DB.conn.prepareStatement(query);
+            rs = pstmt.executeQuery();
+
+            while(rs.next()){
+                id = rs.getInt("seq") - 1;
+
+            }
+
+        }
+        catch(SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return id;
+    }
+
     public static void deleteSecretary(int secretaryID) {
+        insertDecreasedSecretaryID();
         String query = "DELETE FROM Sekreteriat WHERE SekreteriatID = ?";
 
         try {
@@ -251,7 +350,40 @@ public class DB {
         }
     }
 
+    public static void insertDecreasedManagementPesonnelID(){
+        int managementPersonnelID = decreaseManagementPesonnelID();
+        String query = "UPDATE sqlite_sequence SET seq = ? WHERE name = 'Verwaltungspersonal'";
+        try {
+            pstmt = DB.conn.prepareStatement(query);
+            pstmt.setInt(1, managementPersonnelID);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+    public static int decreaseManagementPesonnelID(){
+        int id = 0;
+        String query = "SELECT seq FROM sqlite_sequence WHERE name = 'Verwaltungspersonal'";
+
+        try {
+            pstmt = DB.conn.prepareStatement(query);
+            rs = pstmt.executeQuery();
+
+            while(rs.next()){
+                id = rs.getInt("seq") - 1;
+
+            }
+
+        }
+        catch(SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return id;
+    }
+
     public static void deleteManagementPersonnel(int secretaryID) {
+        insertDecreasedManagementPesonnelID();
         String query = "DELETE FROM Verwaltungspersonal WHERE VerwaltungspersonalID = ?";
 
         try {
@@ -278,5 +410,41 @@ public class DB {
             System.out.println(e.getMessage());
         }
 
+    }
+
+    public static ObservableList<Patient> listPatient(){
+        ObservableList<Patient> oblist = FXCollections.observableArrayList();
+        String query ="SELECT PatientID,Vorname,Name,Telefonnummer,Adresse,ID  FROM Patient";
+        try{
+            pstmt = DB.conn.prepareStatement(query);
+            //rs = conn.createStatement().executeQuery("SELECT PatientID,Vorname,Name,Telefonnummer,Adresse,ID  FROM Patient");
+            rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                oblist.add(new Patient(rs.getInt("PatientID"), rs.getString("Vorname"), rs.getString("Name"), rs.getString("Telefonnummer"), rs.getString("Adresse"), rs.getString("ID")));
+            }
+        }
+        catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+        return oblist;
+    }
+
+    public static ObservableList<Arzt> listDoctor(){
+        ObservableList<Arzt> oblist = FXCollections.observableArrayList();
+        String query ="SELECT ArztID,Vorname,Name,Telefonnummer,Adresse,ID,SVN FROM Arzt";
+        try{
+            pstmt = DB.conn.prepareStatement(query);
+            //rs = conn.createStatement().executeQuery("SELECT PatientID,Vorname,Name,Telefonnummer,Adresse,ID  FROM Patient");
+            rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                oblist.add(new Arzt(rs.getInt("ArztID"), rs.getString("Vorname"), rs.getString("Name"), rs.getString("Telefonnummer"), rs.getString("Adresse"), rs.getString("ID"), rs.getString("SVN")));
+            }
+        }
+        catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+        return oblist;
     }
 }

@@ -7,10 +7,10 @@ public class Patient extends Person {
     // true -> aktiver Patient
     // false -> nicht aktiver Patient
 
-    Patient(String vorname, String name, String adresse, String telefonnummer, String ID, int patientID, boolean zustand){
+    Patient(int patientID, String vorname, String name, String adresse, String telefonnummer, String ID){
         super(vorname,name,adresse,telefonnummer,ID);
         this.patientID = patientID;
-        this.zustand = zustand;
+
     }
 
     public int getPatientID() {
@@ -19,11 +19,11 @@ public class Patient extends Person {
     public void setPatientID(int patientID) {
         this.patientID = patientID;
     }
-
-    public boolean getZustand() {
+    //TODO: BAK
+    /*public boolean getZustand() {
         return zustand;
     }
     public void setZustand(boolean zustand) {
         this.zustand = zustand;
-    }
+    }*/
 }

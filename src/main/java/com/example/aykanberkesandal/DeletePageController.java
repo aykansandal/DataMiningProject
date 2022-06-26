@@ -101,7 +101,7 @@ public class DeletePageController {
     private void deleteDoctor(ActionEvent event){
         //System.out.println("----------------------------------------------------------\n" + "Informationen zur Person, die von der Datenbank geloescht wurde:");
         // DB.printPersonInfo(Integer.parseInt(tfPatientPersonID.getText()));
-        DB.deleteDoctor(Integer.parseInt(tfPatientID.getText()));
+        DB.deleteDoctor(Integer.parseInt(tfArztID.getText()));
         //System.out.println("----------------------------------------------------------");
     }
 
@@ -109,7 +109,7 @@ public class DeletePageController {
     private void deleteSecretary(ActionEvent event){
         //System.out.println("----------------------------------------------------------\n" + "Informationen zur Person, die von der Datenbank geloescht wurde:");
         // DB.printPersonInfo(Integer.parseInt(tfPatientPersonID.getText()));
-        DB.deleteSecretary(Integer.parseInt(tfPatientID.getText()));
+        DB.deleteSecretary(Integer.parseInt(tfSekreteriatID.getText()));
         //System.out.println("----------------------------------------------------------");
     }
 
@@ -117,7 +117,7 @@ public class DeletePageController {
     private void deleteManagementPersonnel(ActionEvent event){
         //System.out.println("----------------------------------------------------------\n" + "Informationen zur Person, die von der Datenbank geloescht wurde:");
         // DB.printPersonInfo(Integer.parseInt(tfPatientPersonID.getText()));
-        DB.deleteManagementPersonnel(Integer.parseInt(tfPatientID.getText()));
+        DB.deleteManagementPersonnel(Integer.parseInt(tfVerwaltungspersonalID.getText()));
         //System.out.println("----------------------------------------------------------");
     }
 

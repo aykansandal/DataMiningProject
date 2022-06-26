@@ -10,6 +10,11 @@ public class Personal extends Person {
         this.svn = svn;
     }
 
+    Personal(String vorname, String name, String adresse, String telefonnummer, String ID, String svn){
+        super(vorname,name,adresse,telefonnummer,ID);
+        this.svn = svn;
+    }
+
     public String getSvn() {
         return svn;
     }
