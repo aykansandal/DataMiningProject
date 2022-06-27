@@ -12,23 +12,31 @@ import javafx.scene.layout.AnchorPane;
 
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.sql.*;
 
 
 public class SidebarController {
     public static Stage stage;
     private static Scene scene;
     private static Parent root;
+    public static Connection conn = null;
+    public static Statement stmt;
+    public  static PreparedStatement pstmt;
+    public  static ResultSet rs;
+
     String User = LoginController.currentUser;
     @FXML
     private AnchorPane apScreen;
     @FXML
     public Label lCurrentUser;
-
+    @FXML
+    public Label lRoleOfCurrentUser;
 
 
     @FXML
     public void initialize() {
         lCurrentUser.setText(User);
+        lRoleOfCurrentUser.setText(DB.giveRoleOfCurrentUser());
         loadPage("Homepage");
 
     }
@@ -60,6 +68,13 @@ public class SidebarController {
         loadPage("Loeschen");
     }
 
+    @FXML
+    private void loadUpdatepage(ActionEvent event) {
+        //stage =(Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setTitle("Aktualisieren");
+        loadPage("Aktualisieren");
+    }
+
     private void loadPage(String page) {
         Parent root = null;
         try {
@@ -83,4 +98,7 @@ public class SidebarController {
         stage.setScene(scene);
         stage.show();
     }
+
+
+
 }

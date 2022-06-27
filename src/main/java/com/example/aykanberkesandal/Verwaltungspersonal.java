@@ -8,6 +8,11 @@ public class Verwaltungspersonal extends Personal  {
         this.verwaltungspersonalID = verwaltungspersonalID;
     }
 
+    Verwaltungspersonal(int verwaltungspersonalID, String vorname, String name, String adresse, String telefonnummer, String ID, String svn){
+        super(vorname, name, adresse, telefonnummer, ID, svn);
+        this.verwaltungspersonalID = verwaltungspersonalID;
+    }
+
     public int getVerwaltungspersonalID() {
         return verwaltungspersonalID;
     }

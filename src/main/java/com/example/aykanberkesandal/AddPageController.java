@@ -108,7 +108,7 @@ public class AddPageController {
     private AnchorPane apVerwaltungspersonalAddieren;
 
     @FXML
-    public void getPatientID(){
+    public void getIncreasedPatientID(){
         String query = "SELECT * FROM sqlite_sequence WHERE name = 'Patient'";
         try {
             pstmt = DB.conn.prepareStatement(query);
@@ -116,6 +116,24 @@ public class AddPageController {
 
             while(rs.next()){
                 String str = Integer.toString(rs.getInt("seq") + 1);
+                tfPatientUID.setText(str);
+            }
+
+        }
+        catch(SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    @FXML
+    public void getPatientID(){
+        String query = "SELECT * FROM Patient ORDER BY PatientID DESC LIMIT 1";
+        try {
+            pstmt = DB.conn.prepareStatement(query);
+            rs = pstmt.executeQuery();
+
+            while(rs.next()){
+                String str = Integer.toString(rs.getInt("PatientID") + 1);
                 tfPatientUID.setText(str);
             }
 
@@ -139,7 +157,7 @@ public class AddPageController {
     }
 
     @FXML
-    public void getArztID(){
+    public void getIncreasedArztID(){
         String query = "SELECT * FROM sqlite_sequence WHERE name = 'Arzt'";
         try {
             pstmt = DB.conn.prepareStatement(query);
@@ -147,6 +165,24 @@ public class AddPageController {
 
             while(rs.next()){
                 String str = Integer.toString(rs.getInt("seq") + 1);
+                tfArztUID.setText(str);
+            }
+
+        }
+        catch(SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    @FXML
+    public void getArztID(){
+        String query = "SELECT * FROM sqlite_sequence WHERE name = 'Arzt'";
+        try {
+            pstmt = DB.conn.prepareStatement(query);
+            rs = pstmt.executeQuery();
+
+            while(rs.next()){
+                String str = Integer.toString(rs.getInt("seq"));
                 tfArztUID.setText(str);
             }
 
@@ -170,7 +206,7 @@ public class AddPageController {
     }
 
     @FXML
-    public void getSekreteriatID(){
+    public void getIncreasedSekreteriatID(){
         String query = "SELECT * FROM sqlite_sequence WHERE name = 'Sekreteriat'";
         try {
             pstmt = DB.conn.prepareStatement(query);
@@ -178,6 +214,24 @@ public class AddPageController {
 
             while(rs.next()){
                 String str = Integer.toString(rs.getInt("seq") + 1);
+                tfSekreteriatUID.setText(str);
+            }
+
+        }
+        catch(SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    @FXML
+    public void getSekreteriatID(){
+        String query = "SELECT * FROM sqlite_sequence WHERE name = 'Sekreteriat'";
+        try {
+            pstmt = DB.conn.prepareStatement(query);
+            rs = pstmt.executeQuery();
+
+            while(rs.next()){
+                String str = Integer.toString(rs.getInt("seq"));
                 tfSekreteriatUID.setText(str);
             }
 
@@ -201,7 +255,7 @@ public class AddPageController {
     }
 
     @FXML
-    public void getVerwaltungspersonalID(){
+    public void getIncreasedVerwaltungspersonalID(){
         String query = "SELECT * FROM sqlite_sequence WHERE name = 'Verwaltungspersonal'";
         try {
             pstmt = DB.conn.prepareStatement(query);
@@ -209,6 +263,24 @@ public class AddPageController {
 
             while(rs.next()){
                 String str = Integer.toString(rs.getInt("seq") + 1);
+                tfVerwaltungspersonalUID.setText(str);
+            }
+
+        }
+        catch(SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    @FXML
+    public void getVerwaltungspersonalID(){
+        String query = "SELECT * FROM sqlite_sequence WHERE name = 'Verwaltungspersonal'";
+        try {
+            pstmt = DB.conn.prepareStatement(query);
+            rs = pstmt.executeQuery();
+
+            while(rs.next()){
+                String str = Integer.toString(rs.getInt("seq"));
                 tfVerwaltungspersonalUID.setText(str);
             }
 
@@ -233,7 +305,9 @@ public class AddPageController {
 
     @FXML
     private void addPatient(ActionEvent event){
+        getIncreasedPatientID();
         DB.insertPatient(Integer.parseInt(tfPatientUID.getText()),tfPatientVorname.getText(),tfPatientName.getText(),tfPatientTelefonnummer.getText(),tfPatientAdresse.getText(),tfPatientID.getText(),tfPatientSVN.getText(),tfPatientBenutzername.getText(),tfPatientPasswort.getText());
+        DB.insertPatientUsernamePassword(Integer.parseInt(tfPatientUID.getText()),tfPatientBenutzername.getText(),tfPatientPasswort.getText());
         //DB.
         //System.out.println("----------------------------------------------------------\n" + "Informationen zur Person, die zur Datenbank addiert wurde:");
         //DB.printPersonInfo(Integer.parseInt(tfPatientPersonID.getText()));
@@ -242,6 +316,7 @@ public class AddPageController {
 
     @FXML
     private void addDoctor(ActionEvent event){
+        getIncreasedArztID();
         DB.insertDoctor(Integer.parseInt(tfArztUID.getText()),tfArztVorname.getText(),tfArztName.getText(),tfArztTelefonnummer.getText(),tfArztAdresse.getText(),tfArztID.getText(),tfArztSVN.getText(),tfArztBenutzername.getText(),tfArztPasswort.getText());
         //System.out.println("----------------------------------------------------------\n" + "Informationen zur Person, die zur Datenbank addiert wurde:");
         //DB.printPersonInfo(Integer.parseInt(tfPatientPersonID.getText()));
@@ -250,6 +325,7 @@ public class AddPageController {
 
     @FXML
     private void addSecretary(ActionEvent event){
+        getIncreasedSekreteriatID();
         DB.insertSecretary(Integer.parseInt(tfSekreteriatUID.getText()),tfSekreteriatVorname.getText(),tfSekreteriatName.getText(),tfSekreteriatTelefonnummer.getText(),tfSekreteriatAdresse.getText(),tfSekreteriatID.getText(),tfSekreteriatSVN.getText(),tfSekreteriatBenutzername.getText(),tfSekreteriatPasswort.getText());
         //System.out.println("----------------------------------------------------------\n" + "Informationen zur Person, die zur Datenbank addiert wurde:");
         //DB.printPersonInfo(Integer.parseInt(tfPatientPersonID.getText()));
@@ -258,6 +334,7 @@ public class AddPageController {
 
     @FXML
     private void addManagementPersonnel(ActionEvent event){
+        getIncreasedVerwaltungspersonalID();
         DB.insertManagementPersonnel(Integer.parseInt(tfVerwaltungspersonalUID.getText()),tfVerwaltungspersonalVorname.getText(),tfVerwaltungspersonalName.getText(),tfVerwaltungspersonalTelefonnummer.getText(),tfVerwaltungspersonalAdresse.getText(),tfVerwaltungspersonalID.getText(),tfVerwaltungspersonalSVN.getText(),tfVerwaltungspersonalBenutzername.getText(),tfVerwaltungspersonalPasswort.getText());
         //System.out.println("----------------------------------------------------------\n" + "Informationen zur Person, die zur Datenbank addiert wurde:");
         //DB.printPersonInfo(Integer.parseInt(tfPatientPersonID.getText()));

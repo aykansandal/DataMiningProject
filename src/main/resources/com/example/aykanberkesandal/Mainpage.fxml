@@ -30,6 +30,11 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Button>
+            <Button layoutX="10.0" layoutY="370.0" mnemonicParsing="false" onAction="#loadUpdatepage" prefHeight="120.0" prefWidth="160.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 4px 0px;" text="Aktualisieren" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Button>
          </children>
       </VBox>
       <AnchorPane fx:id="apScreen" layoutX="160.0" layoutY="70.0" prefHeight="650.0" prefWidth="1120.0" style="-fx-background-color: #97adc4;">
@@ -54,7 +59,7 @@
                <font>
                   <Font name="System Bold" size="15.0" />
                </font></Label>
-            <Label layoutX="5.0" layoutY="136.0" text="Verwaltungspersonal" textFill="WHITE">
+            <Label fx:id="lRoleOfCurrentUser" alignment="CENTER" contentDisplay="CENTER" layoutX="5.0" layoutY="136.0" prefHeight="22.0" prefWidth="147.0" text="Rolle" textFill="WHITE" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="7.800000000000011">
                <font>
                   <Font name="System Bold Italic" size="15.0" />
                </font>

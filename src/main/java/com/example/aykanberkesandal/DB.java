@@ -69,7 +69,7 @@ public class DB {
     }
 
     public static Boolean checkLogin(String benutzername, String passwort) {
-        String query = "SELECT benutzername, passwort FROM Person WHERE benutzername = ? AND passwort = ?";
+        String query = "SELECT Benutzername, Passwort FROM Benutzer WHERE Benutzername = ? AND Passwort = ?";
         try {
             pstmt = DB.conn.prepareStatement(query);
             pstmt.setString(1, benutzername);
@@ -78,11 +78,42 @@ public class DB {
             if(rs.next())
                 return true;
         }
-        catch (Exception e) {
-
+        catch (SQLException e) {
+            System.out.println(e.getMessage());
         }
         return false;
     }
+
+    public static  String giveRoleOfCurrentUser(){
+        String query = "SELECT Benutzername, Passwort, Rolle FROM Benutzer WHERE Benutzername = ? AND Passwort = ?";
+        int i = 0;
+        try {
+            pstmt = DB.conn.prepareStatement(query);
+            pstmt.setString(1, rs.getString("Benutzername"));
+            pstmt.setString(2, rs.getString("Passwort"));
+            rs = pstmt.executeQuery();
+            while(rs.next())
+                i = rs.getInt("Rolle");
+                    if(i == 1)
+                        return "Patient";
+                    else if(i == 2)
+                        return "Arzt";
+                    else if(i == 3)
+                        return  "Sekreteriat";
+                    else if(i == 4)
+                        return "Verwaltungspersonal";
+                    else
+                        return"ERROR";
+
+        }
+        catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        System.out.println(i);
+
+        return "ERROR";
+    }
+
 
     public static void insertPerson(int personID, String benutzername, String passwort) {
         String query = "INSERT INTO Person(PersonID,Benutzername,Passwort) VALUES(?,?,?)";
@@ -111,9 +142,8 @@ public class DB {
     }
 
     public static void insertPatient(int PatientID,String Vorname, String Name, String Telefonnummer, String Adresse, String ID, String SVN, String Benutzername, String Passwort) {
-        String query = "INSERT INTO Patient(PatientID,Vorname,Name,Telefonnummer,Adresse,ID,SVN,Benutzername,Passwort) VALUES(?,?,?,?,?,?,?,?,?)";
-
         try {
+            String query = "INSERT INTO Patient(PatientID,Vorname,Name,Telefonnummer,Adresse,ID,SVN,Benutzername,Passwort) VALUES(?,?,?,?,?,?,?,?,?)";
             pstmt = DB.conn.prepareStatement(query);
             pstmt.setInt(1, PatientID);
             pstmt.setString(2, Vorname);
@@ -133,20 +163,20 @@ public class DB {
     }
 
     public static void insertPatientUsernamePassword(int BenutzerID, String Benutzername, String Passwort){
-        String query =  "INSERT INTO Benutzer(BenutzerID,Benutzername,Passwort,Rolle) VALUES (?,?,?,?)";
 
-                try {
-                    pstmt = DB.conn.prepareStatement(query);
-                    pstmt.setInt(1, BenutzerID);
-                    pstmt.setString(2, Benutzername);
-                    pstmt.setString(3, Passwort);
-                    pstmt.setString(3, "Patient");
 
-                    pstmt.executeUpdate();
-                }
-                catch (SQLException e) {
-                    System.out.println(e.getMessage());
-                }
+        try {
+            String query =  "INSERT INTO Benutzer(BenutzerID,Benutzername,Passwort,Rolle) VALUES (?,?,?,?)";
+            pstmt = DB.conn.prepareStatement(query);
+            pstmt.setInt(1, BenutzerID);
+            pstmt.setString(2, Benutzername);
+            pstmt.setString(3, Passwort);
+            pstmt.setInt(4, 1);
+            pstmt.executeUpdate();
+        }
+        catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
     public static void insertDecreasedPatientID(){
         int patientID = decreasePatientID();
@@ -440,6 +470,42 @@ public class DB {
 
             while (rs.next()) {
                 oblist.add(new Arzt(rs.getInt("ArztID"), rs.getString("Vorname"), rs.getString("Name"), rs.getString("Telefonnummer"), rs.getString("Adresse"), rs.getString("ID"), rs.getString("SVN")));
+            }
+        }
+        catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+        return oblist;
+    }
+
+    public static ObservableList<Sekreteriat> listSecretary(){
+        ObservableList<Sekreteriat> oblist = FXCollections.observableArrayList();
+        String query ="SELECT SekreteriatID,Vorname,Name,Telefonnummer,Adresse,ID,SVN FROM Sekreteriat";
+        try{
+            pstmt = DB.conn.prepareStatement(query);
+            //rs = conn.createStatement().executeQuery("SELECT PatientID,Vorname,Name,Telefonnummer,Adresse,ID  FROM Patient");
+            rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                oblist.add(new Sekreteriat(rs.getInt("SekreteriatID"), rs.getString("Vorname"), rs.getString("Name"), rs.getString("Telefonnummer"), rs.getString("Adresse"), rs.getString("ID"), rs.getString("SVN")));
+            }
+        }
+        catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+        return oblist;
+    }
+
+    public static ObservableList<Verwaltungspersonal> listManagementPersonnel(){
+        ObservableList<Verwaltungspersonal> oblist = FXCollections.observableArrayList();
+        String query ="SELECT VerwaltungspersonalID,Vorname,Name,Telefonnummer,Adresse,ID,SVN FROM Verwaltungspersonal";
+        try{
+            pstmt = DB.conn.prepareStatement(query);
+            //rs = conn.createStatement().executeQuery("SELECT PatientID,Vorname,Name,Telefonnummer,Adresse,ID  FROM Patient");
+            rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                oblist.add(new Verwaltungspersonal(rs.getInt("VerwaltungspersonalID"), rs.getString("Vorname"), rs.getString("Name"), rs.getString("Telefonnummer"), rs.getString("Adresse"), rs.getString("ID"), rs.getString("SVN")));
             }
         }
         catch(SQLException e){

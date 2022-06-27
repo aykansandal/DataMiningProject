@@ -8,6 +8,11 @@ public class Sekreteriat extends Personal  {
         this.sekreteriatID = sekreteriatID;
     }
 
+    Sekreteriat(int sekreteriatID, String vorname, String name, String adresse, String telefonnummer, String ID, String svn){
+        super(vorname, name, adresse, telefonnummer, ID, svn);
+        this.sekreteriatID = sekreteriatID;
+    }
+
     public int getSekreteriatID() {
         return sekreteriatID;
     }

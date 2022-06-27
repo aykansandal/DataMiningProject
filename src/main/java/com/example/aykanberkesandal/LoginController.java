@@ -91,6 +91,7 @@ public class LoginController {
         try {
             if(DB.checkLogin(tfBenutzername.getText(),tfPasswort.getText())){
                 currentUser = tfBenutzername.getText();
+
                 SidebarController.stage =(Stage)(buttonLogin.getScene().getWindow());
                 System.out.println("Login erfolgreich");
                 switchToHomepage(event);
