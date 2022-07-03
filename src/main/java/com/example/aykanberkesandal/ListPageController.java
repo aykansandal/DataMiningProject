@@ -94,7 +94,7 @@ public class ListPageController{
 
     public void clickPatientList(ActionEvent event){
         if(patientTable.isVisible() == false){
-            setPatientList(DB.listPatient());
+            setPatientList(DBListOps.listPatient());
             patientTable.setVisible(true);
             arztTable.setVisible(false);
             sekreteriatTable.setVisible(false);
@@ -107,7 +107,7 @@ public class ListPageController{
 
     public void clickDoctorList(ActionEvent event){
         if(arztTable.isVisible() == false){
-            setDoctorList(DB.listDoctor());
+            setDoctorList(DBListOps.listDoctor());
             arztTable.setVisible(true);
             patientTable.setVisible(false);
             sekreteriatTable.setVisible(false);
@@ -120,7 +120,7 @@ public class ListPageController{
 
     public void clickSecretaryList(ActionEvent event){
         if(sekreteriatTable.isVisible() == false){
-            setSecretaryList(DB.listSecretary());
+            setSecretaryList(DBListOps.listSecretary());
             sekreteriatTable.setVisible(true);
             arztTable.setVisible(false);
             patientTable.setVisible(false);
@@ -133,7 +133,7 @@ public class ListPageController{
 
     public void clickManagementPersonnelList(ActionEvent event){
         if(verwaltungspersonalTable.isVisible() == false){
-            setManagementPersonnelList(DB.listManagementPersonnel());
+            setManagementPersonnelList(DBListOps.listManagementPersonnel());
             verwaltungspersonalTable.setVisible(true);
             sekreteriatTable.setVisible(false);
             arztTable.setVisible(false);

@@ -1,9 +1,9 @@
 package com.example.aykanberkesandal;
 
 public class Personal extends Person {
-    private String svn;
-    private String benutzername;
-    private String passwort;
+    private static String svn;
+    private static String benutzername;
+    private static String passwort;
 
     Personal(String vorname, String name, String adresse, String telefonnummer, String ID, String svn, String benutzername, String passwort){
         super(vorname,name,adresse,telefonnummer,ID);
@@ -15,19 +15,19 @@ public class Personal extends Person {
         this.svn = svn;
     }
 
-    public String getSvn() {
+    public static String getSVN() {
         return svn;
     }
-    public void setSvn(String svn) {
+    public void setSVN(String svn) {
         this.svn = svn;
     }
-    public String getBenutzername() {
+    public static String getBenutzername() {
         return benutzername;
     }
     public void setBenutzername(String benutzername) {
         this.benutzername = benutzername;
     }
-    public String getPasswort() {
+    public static String getPasswort() {
         return passwort;
     }
     public void setPasswort(String passwort) {

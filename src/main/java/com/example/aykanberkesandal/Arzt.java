@@ -3,7 +3,7 @@ package com.example.aykanberkesandal;
 import java.util.ArrayList;
 
 public class Arzt extends Personal  {
-    private int arztID;
+    private static int arztID;
     //ArrayList<Arzt> Aerzte = new ArrayList;
 
     Arzt(int arztID, String vorname, String name, String adresse, String telefonnummer, String ID, String svn, String benutzername, String passwort){
@@ -16,7 +16,7 @@ public class Arzt extends Personal  {
         this.arztID = arztID;
     }
 
-    public int getArztID() {
+    public static int getArztID() {
         return arztID;
     }
     public void setArztID(int arztID) {

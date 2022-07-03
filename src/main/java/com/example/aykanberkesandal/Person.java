@@ -1,11 +1,11 @@
 package com.example.aykanberkesandal;
 
 public class Person {
-    private String vorname;
-    private String name;
-    private String adresse;
-    private String telefonnummer;
-    private String ID;
+    private static String vorname;
+    private static String name;
+    private static String adresse;
+    private static String telefonnummer;
+    private static String ID;
 
     public Person(String vorname, String name, String adresse, String telefonnummer, String ID) {
         this.vorname = vorname;
@@ -15,35 +15,35 @@ public class Person {
         this.ID = ID;
     }
 
-    public String getVorname() {
+    public static String getVorname() {
         return vorname;
     }
     public void setVorname(String vorname) {
         this.vorname = vorname;
     }
 
-    public String getName() {
+    public static String getName() {
         return name;
     }
     public void setName(String name) {
         this.name = name;
     }
 
-    public String getAdresse() {
+    public static String getAdresse() {
         return adresse;
     }
     public void setAdresse(String adresse) {
         this.adresse = adresse;
     }
 
-    public String getTelefonnummer() {
+    public static String getTelefonnummer() {
         return telefonnummer;
     }
     public void setTelefonnummer(String telefonnummer) {
         this.telefonnummer = telefonnummer;
     }
 
-    public String getID() {
+    public static String getID() {
         return ID;
     }
     public void setID(String ID) {

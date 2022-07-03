@@ -13,7 +13,7 @@ public class Sekreteriat extends Personal  {
         this.sekreteriatID = sekreteriatID;
     }
 
-    public int getSekreteriatID() {
+    public static int getSekreteriatID() {
         return sekreteriatID;
     }
     public void setSekreteriatID(int sekreteriatID) {

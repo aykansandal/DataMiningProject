@@ -306,7 +306,7 @@ public class AddPageController {
     @FXML
     private void addPatient(ActionEvent event){
         getIncreasedPatientID();
-        DB.insertPatient(Integer.parseInt(tfPatientUID.getText()),tfPatientVorname.getText(),tfPatientName.getText(),tfPatientTelefonnummer.getText(),tfPatientAdresse.getText(),tfPatientID.getText(),tfPatientSVN.getText(),tfPatientBenutzername.getText(),tfPatientPasswort.getText());
+        DBAddOps.insertPatient(Integer.parseInt(tfPatientUID.getText()),tfPatientVorname.getText(),tfPatientName.getText(),tfPatientTelefonnummer.getText(),tfPatientAdresse.getText(),tfPatientID.getText(),tfPatientSVN.getText(),tfPatientBenutzername.getText(),tfPatientPasswort.getText());
         DB.insertPatientUsernamePassword(Integer.parseInt(tfPatientUID.getText()),tfPatientBenutzername.getText(),tfPatientPasswort.getText());
         //DB.
         //System.out.println("----------------------------------------------------------\n" + "Informationen zur Person, die zur Datenbank addiert wurde:");
@@ -316,29 +316,26 @@ public class AddPageController {
 
     @FXML
     private void addDoctor(ActionEvent event){
-        getIncreasedArztID();
-        DB.insertDoctor(Integer.parseInt(tfArztUID.getText()),tfArztVorname.getText(),tfArztName.getText(),tfArztTelefonnummer.getText(),tfArztAdresse.getText(),tfArztID.getText(),tfArztSVN.getText(),tfArztBenutzername.getText(),tfArztPasswort.getText());
-        //System.out.println("----------------------------------------------------------\n" + "Informationen zur Person, die zur Datenbank addiert wurde:");
-        //DB.printPersonInfo(Integer.parseInt(tfPatientPersonID.getText()));
-        //System.out.println("----------------------------------------------------------");
+        //getIncreasedArztID();
+        Arzt arzt = new Arzt(0,tfArztVorname.getText(),tfArztName.getText(),tfArztTelefonnummer.getText(),tfArztAdresse.getText(),tfArztID.getText(),tfArztSVN.getText(),tfArztBenutzername.getText(),tfArztPasswort.getText());
+        DBAddOps.insertDoctor(arzt);
+
     }
 
     @FXML
-    private void addSecretary(ActionEvent event){
-        getIncreasedSekreteriatID();
-        DB.insertSecretary(Integer.parseInt(tfSekreteriatUID.getText()),tfSekreteriatVorname.getText(),tfSekreteriatName.getText(),tfSekreteriatTelefonnummer.getText(),tfSekreteriatAdresse.getText(),tfSekreteriatID.getText(),tfSekreteriatSVN.getText(),tfSekreteriatBenutzername.getText(),tfSekreteriatPasswort.getText());
-        //System.out.println("----------------------------------------------------------\n" + "Informationen zur Person, die zur Datenbank addiert wurde:");
-        //DB.printPersonInfo(Integer.parseInt(tfPatientPersonID.getText()));
-        //System.out.println("----------------------------------------------------------");
+    private void addSecretary(ActionEvent event) {
+        //getIncreasedSekreteriatID();
+        Sekreteriat sekreteriat = new Sekreteriat(0, tfSekreteriatVorname.getText(), tfSekreteriatName.getText(), tfSekreteriatTelefonnummer.getText(), tfSekreteriatAdresse.getText(), tfSekreteriatID.getText(), tfSekreteriatSVN.getText(), tfSekreteriatBenutzername.getText(), tfSekreteriatPasswort.getText());
+        DBAddOps.insertSecretary(sekreteriat);
     }
 
     @FXML
     private void addManagementPersonnel(ActionEvent event){
-        getIncreasedVerwaltungspersonalID();
-        DB.insertManagementPersonnel(Integer.parseInt(tfVerwaltungspersonalUID.getText()),tfVerwaltungspersonalVorname.getText(),tfVerwaltungspersonalName.getText(),tfVerwaltungspersonalTelefonnummer.getText(),tfVerwaltungspersonalAdresse.getText(),tfVerwaltungspersonalID.getText(),tfVerwaltungspersonalSVN.getText(),tfVerwaltungspersonalBenutzername.getText(),tfVerwaltungspersonalPasswort.getText());
-        //System.out.println("----------------------------------------------------------\n" + "Informationen zur Person, die zur Datenbank addiert wurde:");
-        //DB.printPersonInfo(Integer.parseInt(tfPatientPersonID.getText()));
-        //System.out.println("----------------------------------------------------------");
+        //getIncreasedVerwaltungspersonalID();
+        Verwaltungspersonal verwaltungspersonal = new Verwaltungspersonal(0,tfVerwaltungspersonalVorname.getText(),tfVerwaltungspersonalName.getText(),tfVerwaltungspersonalTelefonnummer.getText(),tfVerwaltungspersonalAdresse.getText(),tfVerwaltungspersonalID.getText(),tfVerwaltungspersonalSVN.getText(),tfVerwaltungspersonalBenutzername.getText(),tfVerwaltungspersonalPasswort.getText());
+        DBAddOps.insertManagementPersonnel(verwaltungspersonal);
+        //DBAddOps.insertManagementPersonnel(Integer.parseInt(tfVerwaltungspersonalUID.getText()),tfVerwaltungspersonalVorname.getText(),tfVerwaltungspersonalName.getText(),tfVerwaltungspersonalTelefonnummer.getText(),tfVerwaltungspersonalAdresse.getText(),tfVerwaltungspersonalID.getText(),tfVerwaltungspersonalSVN.getText(),tfVerwaltungspersonalBenutzername.getText(),tfVerwaltungspersonalPasswort.getText());
+
     }
 
 

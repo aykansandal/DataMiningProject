@@ -13,7 +13,7 @@ public class Verwaltungspersonal extends Personal  {
         this.verwaltungspersonalID = verwaltungspersonalID;
     }
 
-    public int getVerwaltungspersonalID() {
+    public static int getVerwaltungspersonalID() {
         return verwaltungspersonalID;
     }
     public void setVerwaltungspersonalID(int verwaltungspersonalID) {

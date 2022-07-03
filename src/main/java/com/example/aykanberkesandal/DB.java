@@ -141,26 +141,7 @@ public class DB {
         }
     }
 
-    public static void insertPatient(int PatientID,String Vorname, String Name, String Telefonnummer, String Adresse, String ID, String SVN, String Benutzername, String Passwort) {
-        try {
-            String query = "INSERT INTO Patient(PatientID,Vorname,Name,Telefonnummer,Adresse,ID,SVN,Benutzername,Passwort) VALUES(?,?,?,?,?,?,?,?,?)";
-            pstmt = DB.conn.prepareStatement(query);
-            pstmt.setInt(1, PatientID);
-            pstmt.setString(2, Vorname);
-            pstmt.setString(3, Name);
-            pstmt.setString(4, Telefonnummer);
-            pstmt.setString(5, Adresse);
-            pstmt.setString(6, ID);
-            pstmt.setString(7, SVN);
-            pstmt.setString(8, Benutzername);
-            pstmt.setString(9, Passwort);
 
-
-            pstmt.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
 
     public static void insertPatientUsernamePassword(int BenutzerID, String Benutzername, String Passwort){
 
@@ -210,41 +191,10 @@ public class DB {
         return id;
     }
 
-    public static void deletePatient(int patientID) {
-        insertDecreasedPatientID();
-        String query = "DELETE FROM Patient WHERE PatientID = ?";
-
-        try {
-            pstmt = DB.conn.prepareStatement(query);
-            pstmt.setInt(1, patientID);
-            pstmt.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
 
 
-    public static void insertDoctor(int ArztID,String Vorname, String Name, String Telefonnummer, String Adresse, String ID, String SVN, String Benutzername, String Passwort) {
-        String query = "INSERT INTO Arzt(ArztID,Vorname,Name,Telefonnummer,Adresse,ID,SVN,Benutzername,Passwort) VALUES(?,?,?,?,?,?,?,?,?)";
-
-        try {
-            pstmt = DB.conn.prepareStatement(query);
-            pstmt.setInt(1, ArztID);
-            pstmt.setString(2, Vorname);
-            pstmt.setString(3, Name);
-            pstmt.setString(4, Telefonnummer);
-            pstmt.setString(5, Adresse);
-            pstmt.setString(6, ID);
-            pstmt.setString(7, SVN);
-            pstmt.setString(8, Benutzername);
-            pstmt.setString(9, Passwort);
 
 
-            pstmt.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
 
     public static void insertDecreasedDoctorID(){
         int doctorID = decreaseDoctorID();
@@ -278,40 +228,9 @@ public class DB {
         return id;
     }
 
-    public static void deleteDoctor(int doctorID) {
-        insertDecreasedDoctorID();
-        String query = "DELETE FROM Arzt WHERE ArztID = ?";
-
-        try {
-            pstmt = DB.conn.prepareStatement(query);
-            pstmt.setInt(1, doctorID);
-            pstmt.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
-    public static void insertSecretary(int SekreteriatID,String Vorname, String Name, String Telefonnummer, String Adresse, String ID, String SVN, String Benutzername, String Passwort) {
-        String query = "INSERT INTO Sekreteriat(SekreteriatID,Vorname,Name,Telefonnummer,Adresse,ID,SVN,Benutzername,Passwort) VALUES(?,?,?,?,?,?,?,?,?)";
-
-        try {
-            pstmt = DB.conn.prepareStatement(query);
-            pstmt.setInt(1, SekreteriatID);
-            pstmt.setString(2, Vorname);
-            pstmt.setString(3, Name);
-            pstmt.setString(4, Telefonnummer);
-            pstmt.setString(5, Adresse);
-            pstmt.setString(6, ID);
-            pstmt.setString(7, SVN);
-            pstmt.setString(8, Benutzername);
-            pstmt.setString(9, Passwort);
 
 
-            pstmt.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
+
 
     public static void insertDecreasedSecretaryID(){
         int secretaryID = decreaseSecretaryID();
@@ -345,40 +264,9 @@ public class DB {
         return id;
     }
 
-    public static void deleteSecretary(int secretaryID) {
-        insertDecreasedSecretaryID();
-        String query = "DELETE FROM Sekreteriat WHERE SekreteriatID = ?";
-
-        try {
-            pstmt = DB.conn.prepareStatement(query);
-            pstmt.setInt(1, secretaryID);
-            pstmt.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
-    public static void insertManagementPersonnel(int VerwaltungspersonalID,String Vorname, String Name, String Telefonnummer, String Adresse, String ID, String SVN, String Benutzername, String Passwort) {
-        String query = "INSERT INTO Verwaltungspersonal(VerwaltungspersonalID,Vorname,Name,Telefonnummer,Adresse,ID,SVN,Benutzername,Passwort) VALUES(?,?,?,?,?,?,?,?,?)";
-
-        try {
-            pstmt = DB.conn.prepareStatement(query);
-            pstmt.setInt(1, VerwaltungspersonalID);
-            pstmt.setString(2, Vorname);
-            pstmt.setString(3, Name);
-            pstmt.setString(4, Telefonnummer);
-            pstmt.setString(5, Adresse);
-            pstmt.setString(6, ID);
-            pstmt.setString(7, SVN);
-            pstmt.setString(8, Benutzername);
-            pstmt.setString(9, Passwort);
 
 
-            pstmt.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
+
 
     public static void insertDecreasedManagementPesonnelID(){
         int managementPersonnelID = decreaseManagementPesonnelID();
@@ -412,18 +300,7 @@ public class DB {
         return id;
     }
 
-    public static void deleteManagementPersonnel(int secretaryID) {
-        insertDecreasedManagementPesonnelID();
-        String query = "DELETE FROM Verwaltungspersonal WHERE VerwaltungspersonalID = ?";
 
-        try {
-            pstmt = DB.conn.prepareStatement(query);
-            pstmt.setInt(1, secretaryID);
-            pstmt.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
 
     public static void printPersonInfo(int personID) {
         String query = "SELECT * FROM Person WHERE personID = ?";
@@ -442,75 +319,43 @@ public class DB {
 
     }
 
-    public static ObservableList<Patient> listPatient(){
-        ObservableList<Patient> oblist = FXCollections.observableArrayList();
-        String query ="SELECT PatientID,Vorname,Name,Telefonnummer,Adresse,ID  FROM Patient";
-        try{
-            pstmt = DB.conn.prepareStatement(query);
-            //rs = conn.createStatement().executeQuery("SELECT PatientID,Vorname,Name,Telefonnummer,Adresse,ID  FROM Patient");
-            rs = pstmt.executeQuery();
 
-            while (rs.next()) {
-                oblist.add(new Patient(rs.getInt("PatientID"), rs.getString("Vorname"), rs.getString("Name"), rs.getString("Telefonnummer"), rs.getString("Adresse"), rs.getString("ID")));
-            }
+
+
+
+
+
+
+
+
+
+    public static String[] findPatient(int PatientID2){
+        String Vorname = "", Name = "",Telefonnummer = "", Adresse ="", ID = "", SVN = "", Benutzername = "", Passwort = "";
+
+        try {
+            String query = "SELECT * FROM Patient WHERE PatientID = ?";
+
+                pstmt = DB.conn.prepareStatement(query);
+                pstmt.setInt(1,PatientID2);
+                rs = pstmt.executeQuery();
+
+                while(rs.next()){
+                    Vorname = rs.getString("Vorname");
+                    Name = rs.getString("Name");
+                    Telefonnummer = rs.getString("Telefonnummer");
+                    Adresse = rs.getString("Adresse");
+                    ID = rs.getString("ID");
+                    SVN = rs.getString("SVN");
+                    Benutzername = rs.getString("Benutzername");
+                    Passwort = rs.getString("Passwort");
+                }
+
         }
-        catch(SQLException e){
+        catch(SQLException e) {
             System.out.println(e.getMessage());
         }
-        return oblist;
+        return new String[]{Vorname,Name,Telefonnummer,Adresse,ID,SVN,Benutzername,Passwort};
     }
 
-    public static ObservableList<Arzt> listDoctor(){
-        ObservableList<Arzt> oblist = FXCollections.observableArrayList();
-        String query ="SELECT ArztID,Vorname,Name,Telefonnummer,Adresse,ID,SVN FROM Arzt";
-        try{
-            pstmt = DB.conn.prepareStatement(query);
-            //rs = conn.createStatement().executeQuery("SELECT PatientID,Vorname,Name,Telefonnummer,Adresse,ID  FROM Patient");
-            rs = pstmt.executeQuery();
 
-            while (rs.next()) {
-                oblist.add(new Arzt(rs.getInt("ArztID"), rs.getString("Vorname"), rs.getString("Name"), rs.getString("Telefonnummer"), rs.getString("Adresse"), rs.getString("ID"), rs.getString("SVN")));
-            }
-        }
-        catch(SQLException e){
-            System.out.println(e.getMessage());
-        }
-        return oblist;
-    }
-
-    public static ObservableList<Sekreteriat> listSecretary(){
-        ObservableList<Sekreteriat> oblist = FXCollections.observableArrayList();
-        String query ="SELECT SekreteriatID,Vorname,Name,Telefonnummer,Adresse,ID,SVN FROM Sekreteriat";
-        try{
-            pstmt = DB.conn.prepareStatement(query);
-            //rs = conn.createStatement().executeQuery("SELECT PatientID,Vorname,Name,Telefonnummer,Adresse,ID  FROM Patient");
-            rs = pstmt.executeQuery();
-
-            while (rs.next()) {
-                oblist.add(new Sekreteriat(rs.getInt("SekreteriatID"), rs.getString("Vorname"), rs.getString("Name"), rs.getString("Telefonnummer"), rs.getString("Adresse"), rs.getString("ID"), rs.getString("SVN")));
-            }
-        }
-        catch(SQLException e){
-            System.out.println(e.getMessage());
-        }
-        return oblist;
-    }
-
-    public static ObservableList<Verwaltungspersonal> listManagementPersonnel(){
-        ObservableList<Verwaltungspersonal> oblist = FXCollections.observableArrayList();
-        String query ="SELECT VerwaltungspersonalID,Vorname,Name,Telefonnummer,Adresse,ID,SVN FROM Verwaltungspersonal";
-        try{
-            pstmt = DB.conn.prepareStatement(query);
-            //rs = conn.createStatement().executeQuery("SELECT PatientID,Vorname,Name,Telefonnummer,Adresse,ID  FROM Patient");
-            rs = pstmt.executeQuery();
-
-            while (rs.next()) {
-                oblist.add(new Verwaltungspersonal(rs.getInt("VerwaltungspersonalID"), rs.getString("Vorname"), rs.getString("Name"), rs.getString("Telefonnummer"), rs.getString("Adresse"), rs.getString("ID"), rs.getString("SVN")));
-            }
-        }
-        catch(SQLException e){
-            System.out.println(e.getMessage());
-        }
-        return oblist;
-    }
 }
