@@ -124,4 +124,12 @@ public class ArztController {
         delButton.setVisible(false);
         updtButton.setVisible(false);
     }
+
+    @FXML
+    private void clickListArzt(){
+        if(arztTable.isVisible() == false)
+            arztTable.setVisible(true);
+        else
+            arztTable.setVisible(false);
+    }
 }

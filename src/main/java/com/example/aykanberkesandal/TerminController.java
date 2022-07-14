@@ -125,4 +125,12 @@ public class TerminController {
         updtButton.setVisible(false);
     }
 
+    @FXML
+    private void clickListTermin(){
+        if(terminTable.isVisible() == false)
+            terminTable.setVisible(true);
+        else
+            terminTable.setVisible(false);
+    }
+
 }

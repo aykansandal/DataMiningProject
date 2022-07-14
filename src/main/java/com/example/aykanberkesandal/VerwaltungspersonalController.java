@@ -123,4 +123,12 @@ public class VerwaltungspersonalController {
         delButton.setVisible(false);
         updtButton.setVisible(false);
     }
+
+    @FXML
+    private void clickListVerwaltungspersonal(){
+        if(verwaltungspersonalTable.isVisible() == false)
+            verwaltungspersonalTable.setVisible(true);
+        else
+            verwaltungspersonalTable.setVisible(false);
+    }
 }

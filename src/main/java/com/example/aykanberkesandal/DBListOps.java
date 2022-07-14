@@ -37,12 +37,10 @@ public class DBListOps {
         ObservableList<Patient> oblist = FXCollections.observableArrayList();
 
         try{
-            //PreparedStatement preparedStatement = DB.conn.prepareStatement(query);
-            //rs = preparedStatement.executeQuery();
             Statement statement = DB.conn.createStatement();
             ResultSet rs = statement.executeQuery(query);
             while(rs.next()){
-                System.out.println(rs.getString("Vorname"));
+                //System.out.println(rs.getString("Vorname"));
                 Patient patient = new Patient(rs.getInt("PatientID"), rs.getString("Vorname"), rs.getString("Name"), rs.getString("Telefonnummer"), rs.getString("Adresse"), rs.getString("ID"));
                 oblist.add(patient);
             }

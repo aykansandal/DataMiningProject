@@ -11,7 +11,7 @@
 
 <AnchorPane prefHeight="650.0" prefWidth="1120.0" style="-fx-background-color: #97adc4;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.aykanberkesandal.PatientController">
    <children>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="433.0" layoutY="221.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="250.0" fitWidth="250.0" layoutX="433.0" layoutY="171.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../patient-icon-28.png" />
          </image>
@@ -21,7 +21,7 @@
             <Font name="System Bold Italic" size="30.0" />
          </font>
       </Label>
-      <TableView fx:id="patientTable" layoutY="46.0" prefHeight="500.0" prefWidth="1120.0">
+      <TableView fx:id="patientTable" layoutX="-2.0" layoutY="46.0" prefHeight="500.0" prefWidth="1120.0">
         <columns>
           <TableColumn fx:id="col_UID_patient" prefWidth="186.6" text="PatientID" />
             <TableColumn fx:id="col_vorname_patient" prefWidth="186.6" text="Vorname" />

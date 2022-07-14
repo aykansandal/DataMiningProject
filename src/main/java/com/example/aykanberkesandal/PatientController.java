@@ -144,16 +144,11 @@ public class PatientController {
     }
 
     @FXML
-    public void clickListPatient(){
-        setPatientList(DBListOps.listPatient());
-
-        /*if(patientTable.isVisible() == false){
+    private void clickListPatient(){
+        if(patientTable.isVisible() == false)
             patientTable.setVisible(true);
-
-        }
-        else{
+        else
             patientTable.setVisible(false);
-        }*/
     }
 
     public void makeButtonsInvisible(){

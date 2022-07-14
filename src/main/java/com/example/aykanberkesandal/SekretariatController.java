@@ -125,5 +125,13 @@ public class SekretariatController {
         updtButton.setVisible(false);
     }
 
+    @FXML
+    private void clickListSekretariat(){
+        if(sekretariatTable.isVisible() == false)
+            sekretariatTable.setVisible(true);
+        else
+            sekretariatTable.setVisible(false);
+    }
+
 
 }

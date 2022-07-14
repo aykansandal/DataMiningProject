@@ -9,7 +9,7 @@
 
 <AnchorPane minWidth="244.0" prefHeight="395.0" prefWidth="244.0" style="-fx-background-color: #268cb4;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.aykanberkesandal.TerminAddPopupController">
    <children>
-      <Label layoutX="14.0" layoutY="95.0" text="Datum:" textFill="WHITE">
+      <Label layoutX="14.0" layoutY="100.0" text="Datum:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
@@ -36,10 +36,10 @@
       </Button>
       <TextField fx:id="tfTerminArztName" layoutX="15.0" layoutY="199.0" />
       <TextField fx:id="tfTerminPatientName" layoutX="15.0" layoutY="274.0" />
-      <DatePicker fx:id="dpTermin" layoutX="14.0" layoutY="125.0" promptText="Wählen Sie ein Datum" />
+      <DatePicker fx:id="dpTermin" layoutX="14.0" layoutY="130.0" promptText="Wählen Sie ein Datum" />
       <TextField layoutX="-222.0" layoutY="115.0" />
       <TextField fx:id="tfTerminUID" layoutX="16.0" layoutY="70.0" />
-      <Label layoutX="14.0" layoutY="37.0" text="TerminID" textFill="WHITE">
+      <Label layoutX="14.0" layoutY="37.0" text="TerminID:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
