@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane minWidth="400.0" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #268cb4;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.aykanberkesandal.PatientAddPopupController">
+   <children>
+      <TextField fx:id="tfPatientVorname" layoutX="14.0" layoutY="176.0" />
+      <TextField fx:id="tfPatientUID" layoutX="14.0" layoutY="103.0" />
+      <TextField fx:id="tfPatientName" layoutX="14.0" layoutY="252.0" />
+      <Label layoutX="13.0" layoutY="72.0" text="PatientID:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="15.0" layoutY="146.0" text="Vorname:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="15.0" layoutY="221.0" text="Name:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfPatientAdresse" layoutX="14.0" layoutY="403.0" />
+      <TextField fx:id="tfPatientTelefonnummer" layoutX="14.0" layoutY="334.0" />
+      <TextField fx:id="tfPatientID" layoutX="14.0" layoutY="479.0" />
+      <Label layoutX="15.0" layoutY="304.0" text="Telefonnummer:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="376.0" text="Adresse:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="448.0" text="Identifikationsnummer:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="14.0" text="Neuer Patient">
+         <font>
+            <Font name="System Bold Italic" size="30.0" />
+         </font>
+      </Label>
+      <Button layoutX="97.0" layoutY="535.0" mnemonicParsing="false" onAction="#addPatient" prefHeight="50.0" prefWidth="205.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 3px;" text="Hinzufüge Patient" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+      <Button layoutX="219.0" layoutY="100.0" mnemonicParsing="false" onAction="#clickGetPatientID" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 3px;" text="Bekomme ID" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

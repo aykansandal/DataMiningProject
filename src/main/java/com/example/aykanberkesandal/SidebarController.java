@@ -1,5 +1,6 @@
 package com.example.aykanberkesandal;
 
+import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +12,8 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
 import javafx.stage.Stage;
+import javafx.util.Duration;
+
 import java.io.IOException;
 import java.sql.*;
 
@@ -23,21 +26,54 @@ public class SidebarController {
     public static Statement stmt;
     public  static PreparedStatement pstmt;
     public  static ResultSet rs;
+    public static PatientController patientController;
+    public static TerminController terminController;
+    public static ArztController arztController;
+    public static SekretariatController sekretariatController;
+    public static VerwaltungspersonalController verwaltungspersonalController;
 
     String User = LoginController.currentUser;
+    String userRolle = LoginController.userRolle;
+
+    @FXML
+    private Label lErrorMessage;
+    public FadeTransition ft = new FadeTransition(Duration.millis(1900));
+
     @FXML
     private AnchorPane apScreen;
     @FXML
     public Label lCurrentUser;
     @FXML
     public Label lRoleOfCurrentUser;
+    @FXML
+    public Label lVpersonal;
+    @FXML
+    public Label lArzt;
+    @FXML
+    public Label lSekretariat;
 
 
     @FXML
     public void initialize() {
         lCurrentUser.setText(User);
-        lRoleOfCurrentUser.setText(DB.giveRoleOfCurrentUser());
+        //lRoleOfCurrentUser.setText(DB.giveRoleOfCurrentUser());
         loadPage("Homepage");
+        ft.setNode(lErrorMessage);
+        ft.setFromValue(1.0);
+        ft.setToValue(0.0);
+        ft.setCycleCount(1);
+        ft.setAutoReverse(false);
+
+        if(userRolle.equals("Verwaltungspersonal")) {
+            lVpersonal.setVisible(true);
+        }
+        else if(userRolle.equals("Sekretariat")){
+            lSekretariat.setVisible(true);
+        }
+        else{
+            lArzt.setVisible(true);
+        }
+
 
     }
 
@@ -48,35 +84,153 @@ public class SidebarController {
     }
 
     @FXML
-    private void loadListpage(ActionEvent event) {
-        //stage =(Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setTitle("Listen");
-        loadPage("Listen");
+    private void loadPatientPage() {
+        Parent root = null;
+        try {
+            if(userRolle.equals("Verwaltungspersonal")) {
+                root = FXMLLoader.load(getClass().getResource("Patient.fxml"));
+                apScreen.getChildren().removeAll();
+                apScreen.getChildren().add(root);
+                patientController.refreshTable();
+            }
+            else if(userRolle.equals("Sekretariat")){
+                root = FXMLLoader.load(getClass().getResource("Patient.fxml"));
+                apScreen.getChildren().removeAll();
+                apScreen.getChildren().add(root);
+                patientController.refreshTable();
+                patientController.makeButtonsInvisible();
+            }
+            else{
+                lErrorMessage.setVisible(true);
+                ft.play();
+            }
+
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @FXML
-    private void loadAddpage(ActionEvent event) {
-        //stage =(Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setTitle("Hinzufügen");
-        loadPage("Hinzufuegen");
+    private void loadAppointmentPage() {
+        Parent root = null;
+        try {
+            if(userRolle.equals("Verwaltungspersonal")){
+                root = FXMLLoader.load(getClass().getResource( "Termin.fxml"));
+                apScreen.getChildren().removeAll();
+                apScreen.getChildren().add(root);
+                terminController.refreshTable();
+            }
+            else if(userRolle.equals("Sekretariat")){
+                root = FXMLLoader.load(getClass().getResource( "Termin.fxml"));
+                apScreen.getChildren().removeAll();
+                apScreen.getChildren().add(root);
+                terminController.refreshTable();
+                terminController.makeButtonsInvisible();
+            }
+            else{
+                lErrorMessage.setVisible(true);
+                ft.play();
+            }
+
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @FXML
-    private void loadDeletepage(ActionEvent event) {
-        //stage =(Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setTitle("Löschen");
-        loadPage("Loeschen");
+    private void loadDoctorPage() {
+        Parent root = null;
+        try {
+            if(userRolle.equals("Verwaltungspersonal")){
+                root = FXMLLoader.load(getClass().getResource( "Arzt.fxml"));
+                apScreen.getChildren().removeAll();
+                apScreen.getChildren().add(root);
+                arztController.refreshTable();
+            }
+            else if(userRolle.equals("Sekretariat")){
+                root = FXMLLoader.load(getClass().getResource( "Arzt.fxml"));
+                apScreen.getChildren().removeAll();
+                apScreen.getChildren().add(root);
+                arztController.refreshTable();
+                arztController.makeButtonsInvisible();
+            }
+            else{
+                lErrorMessage.setVisible(true);
+                ft.play();
+            }
+
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @FXML
-    private void loadUpdatepage(ActionEvent event) {
-        //stage =(Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setTitle("Aktualisieren");
-        loadPage("Aktualisieren");
+    private void loadSecretaryPage() {
+        Parent root = null;
+        try {
+            if(userRolle.equals("Verwaltungspersonal")){
+                root = FXMLLoader.load(getClass().getResource( "Sekretariat.fxml"));
+                apScreen.getChildren().removeAll();
+                apScreen.getChildren().add(root);
+                sekretariatController.refreshTable();
+            }
+            else if(userRolle.equals("Sekretariat")){
+                root = FXMLLoader.load(getClass().getResource( "Sekretariat.fxml"));
+                apScreen.getChildren().removeAll();
+                apScreen.getChildren().add(root);
+                sekretariatController.refreshTable();
+                sekretariatController.makeButtonsInvisible();
+            }
+            else{
+                lErrorMessage.setVisible(true);
+                ft.play();
+            }
+
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @FXML
+    private void loadManagementPersonnelPage() {
+        Parent root = null;
+        try {
+            if(userRolle.equals("Verwaltungspersonal")){
+                root = FXMLLoader.load(getClass().getResource( "Verwaltungspersonal.fxml"));
+                apScreen.getChildren().removeAll();
+                apScreen.getChildren().add(root);
+                verwaltungspersonalController.refreshTable();
+            }
+            else if(userRolle.equals("Sekretariat")){
+                root = FXMLLoader.load(getClass().getResource( "Verwaltungspersonal.fxml"));
+                apScreen.getChildren().removeAll();
+                apScreen.getChildren().add(root);
+                verwaltungspersonalController.refreshTable();
+                verwaltungspersonalController.makeButtonsInvisible();
+            }
+            else{
+                lErrorMessage.setVisible(true);
+                ft.play();
+            }
+
+
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     private void loadPage(String page) {
-        Parent root = null;
+        //Parent root = null;
         try {
             root = FXMLLoader.load(getClass().getResource(page+".fxml"));
             apScreen.getChildren().removeAll();
@@ -86,7 +240,6 @@ public class SidebarController {
             e.printStackTrace();
         }
     }
-
     public void switchToLoginScreen(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("LoginScreen.fxml"));
         stage =(Stage)((Node)event.getSource()).getScene().getWindow();
@@ -98,7 +251,4 @@ public class SidebarController {
         stage.setScene(scene);
         stage.show();
     }
-
-
-
 }

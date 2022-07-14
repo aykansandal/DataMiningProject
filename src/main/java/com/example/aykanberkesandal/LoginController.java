@@ -40,6 +40,7 @@ public class LoginController {
 
 
     public static String currentUser;
+    public static String userRolle;
 
     public FadeTransition ft = new FadeTransition(Duration.millis(3000));
     public FadeTransition ft2 = new FadeTransition(Duration.millis(3000));
@@ -48,7 +49,6 @@ public class LoginController {
 
     @FXML
     public void initialize(){
-        //TODO: Kod tekrarını engelle
         ft.setNode(lErrorMessage);
         ft.setFromValue(1.0);
         ft.setToValue(0.0);
@@ -80,7 +80,7 @@ public class LoginController {
         stage.setTitle("Startzeite");
         //stage.setResizable(false); TODO: Decide if you want it resizable
         scene = new Scene(root);
-        //stage.hide();  TODO: <-
+        //stage.hide();
         stage.setScene(scene);
         stage.centerOnScreen();
         stage.show();
@@ -91,13 +91,13 @@ public class LoginController {
         try {
             if(DB.checkLogin(tfBenutzername.getText(),tfPasswort.getText())){
                 currentUser = tfBenutzername.getText();
+                userRolle = DB.giveRoleOfCurrentUser();
 
                 SidebarController.stage =(Stage)(buttonLogin.getScene().getWindow());
                 System.out.println("Login erfolgreich");
                 switchToHomepage(event);
             }
             else if(tfBenutzername.getText().isEmpty() && tfPasswort.getText().isEmpty()){
-                //TODO: Try to avoid cluttering animations when clicking repeatedly.
                 lErrorMessage2.setVisible(true);
                 ft2.play();
             }

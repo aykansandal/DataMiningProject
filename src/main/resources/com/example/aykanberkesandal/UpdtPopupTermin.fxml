@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane minWidth="292.0" prefHeight="530.0" prefWidth="292.0" style="-fx-background-color: #268cb4;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.aykanberkesandal.TerminUpdtPopupController">
+   <children>
+      <TextField fx:id="tfTerminArztName" layoutX="73.0" layoutY="285.0" />
+      <TextField fx:id="tfTerminUID" editable="false" layoutX="73.0" layoutY="218.0" />
+      <Label layoutX="73.0" layoutY="187.0" text="TerminID:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="71.0" layoutY="254.0" text="Name vom Arzt:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Button layoutX="40.0" layoutY="94.0" mnemonicParsing="false" onAction="#clickFindTermin" prefHeight="50.0" prefWidth="205.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 3px;" text="Finde Termin" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+      <TextField fx:id="tfTerminPatientName" layoutX="73.0" layoutY="348.0" />
+      <TextField fx:id="tfTerminDatum" layoutX="73.0" layoutY="405.0" />
+      <Label layoutX="71.0" layoutY="374.0" text="Datum:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="71.0" layoutY="317.0" text="Name vom Patient:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfTerminUID2" layoutX="68.0" layoutY="51.0" />
+      <Label layoutX="69.0" layoutY="21.0" text="Gebe TerminID:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="40.0" layoutY="151.0" text="Termininfo">
+         <font>
+            <Font name="System Bold Italic" size="24.0" />
+         </font>
+      </Label>
+      <Button layoutX="40.0" layoutY="458.0" mnemonicParsing="false" onAction="#clickUpdateTermin" prefHeight="50.0" prefWidth="205.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 3px;" text="Aktualisiere Termininfo" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

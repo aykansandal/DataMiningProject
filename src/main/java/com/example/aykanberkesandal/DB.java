@@ -84,7 +84,7 @@ public class DB {
         return false;
     }
 
-    public static  String giveRoleOfCurrentUser(){
+    public static String giveRoleOfCurrentUser(){
         String query = "SELECT Benutzername, Passwort, Rolle FROM Benutzer WHERE Benutzername = ? AND Passwort = ?";
         int i = 0;
         try {
@@ -95,13 +95,11 @@ public class DB {
             while(rs.next())
                 i = rs.getInt("Rolle");
                     if(i == 1)
-                        return "Patient";
+                        return "Verwaltungspersonal";
                     else if(i == 2)
                         return "Arzt";
                     else if(i == 3)
-                        return  "Sekreteriat";
-                    else if(i == 4)
-                        return "Verwaltungspersonal";
+                        return  "Sekretariat";
                     else
                         return"ERROR";
 
@@ -112,6 +110,294 @@ public class DB {
         System.out.println(i);
 
         return "ERROR";
+    }
+
+    public static int getUserID(){
+        String query = "SELECT seq FROM sqlite_sequence WHERE name ='Benutzer'";
+        int patientID = 0;
+        try {
+            pstmt = DB.conn.prepareStatement(query);
+            rs = pstmt.executeQuery();
+            while(rs.next()){
+                patientID = rs.getInt("seq") + 1;
+
+            }
+        }
+        catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+
+        return patientID;
+    }
+
+    public static int getPatientID(){
+        String query = "SELECT seq FROM sqlite_sequence WHERE name ='Patient'";
+        int patientID = 0;
+        try {
+            pstmt = DB.conn.prepareStatement(query);
+            rs = pstmt.executeQuery();
+            while(rs.next()){
+                patientID = rs.getInt("seq");
+
+            }
+        }
+        catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+
+        return patientID;
+    }
+
+    public static int getIncreasedPatientID(){
+        String query = "SELECT seq FROM sqlite_sequence WHERE name ='Patient'";
+        int patientID = 0;
+        try {
+            pstmt = DB.conn.prepareStatement(query);
+            rs = pstmt.executeQuery();
+            while(rs.next()){
+                patientID = rs.getInt("seq") + 1;
+
+            }
+        }
+        catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+
+        return patientID;
+    }
+
+    public static int decreasePatientID(){
+        String query = "SELECT seq FROM sqlite_sequence WHERE name ='Patient'";
+        int patientID = 0;
+        try {
+            pstmt = DB.conn.prepareStatement(query);
+            rs = pstmt.executeQuery();
+            while(rs.next()){
+                patientID = rs.getInt("seq") - 1;
+
+            }
+        }
+        catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+
+        return patientID;
+    }
+
+    public static int getTerminID(){
+        String query = "SELECT seq FROM sqlite_sequence WHERE name ='Termin'";
+        int terminID = 0;
+        try {
+            pstmt = DB.conn.prepareStatement(query);
+            rs = pstmt.executeQuery();
+            while(rs.next()){
+                terminID = rs.getInt("seq");
+
+            }
+        }
+        catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+
+        return terminID;
+    }
+
+    public static int getIncreasedTerminID(){
+        String query = "SELECT seq FROM sqlite_sequence WHERE name ='Termin'";
+        int terminID = 0;
+        try {
+            pstmt = DB.conn.prepareStatement(query);
+            rs = pstmt.executeQuery();
+            while(rs.next()){
+                terminID = rs.getInt("seq") + 1;
+
+            }
+        }
+        catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+
+        return terminID;
+    }
+
+    public static int decreaseTerminID(){
+        String query = "SELECT seq FROM sqlite_sequence WHERE name ='Termin'";
+        int terminID = 0;
+        try {
+            pstmt = DB.conn.prepareStatement(query);
+            rs = pstmt.executeQuery();
+            while(rs.next()){
+                terminID = rs.getInt("seq") - 1;
+
+            }
+        }
+        catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+
+        return terminID;
+    }
+
+    public static int getArztID(){
+        String query = "SELECT seq FROM sqlite_sequence WHERE name ='Arzt'";
+        int arztID = 0;
+        try {
+            pstmt = DB.conn.prepareStatement(query);
+            rs = pstmt.executeQuery();
+            while(rs.next()){
+                arztID = rs.getInt("seq");
+
+            }
+        }
+        catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+
+        return arztID;
+    }
+
+    public static int getIncreasedArztID(){
+        String query = "SELECT seq FROM sqlite_sequence WHERE name ='Arzt'";
+        int arztID = 0;
+        try {
+            pstmt = DB.conn.prepareStatement(query);
+            rs = pstmt.executeQuery();
+            while(rs.next()){
+                arztID = rs.getInt("seq") + 1;
+
+            }
+        }
+        catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+
+        return arztID;
+    }
+
+    public static int decreaseArztID(){
+        String query = "SELECT seq FROM sqlite_sequence WHERE name ='Arzt'";
+        int arztID = 0;
+        try {
+            pstmt = DB.conn.prepareStatement(query);
+            rs = pstmt.executeQuery();
+            while(rs.next()){
+                arztID = rs.getInt("seq") - 1;
+
+            }
+        }
+        catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+
+        return arztID;
+    }
+
+    public static int getSekretariatID(){
+        String query = "SELECT seq FROM sqlite_sequence WHERE name ='Sekretariat'";
+        int sekretariatID = 0;
+        try {
+            pstmt = DB.conn.prepareStatement(query);
+            rs = pstmt.executeQuery();
+            while(rs.next()){
+                sekretariatID = rs.getInt("seq");
+
+            }
+        }
+        catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+
+        return sekretariatID;
+    }
+
+    public static int getIncreasedSekretariatID(){
+        String query = "SELECT seq FROM sqlite_sequence WHERE name ='Sekretariat'";
+        int sekretariatID = 0;
+        try {
+            pstmt = DB.conn.prepareStatement(query);
+            rs = pstmt.executeQuery();
+            while(rs.next()){
+                sekretariatID = rs.getInt("seq") + 1;
+
+            }
+        }
+        catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+
+        return sekretariatID;
+    }
+
+    public static int decreaseSekretariatID(){
+        String query = "SELECT seq FROM sqlite_sequence WHERE name ='Sekretariat'";
+        int sekretariatID = 0;
+        try {
+            pstmt = DB.conn.prepareStatement(query);
+            rs = pstmt.executeQuery();
+            while(rs.next()){
+                sekretariatID = rs.getInt("seq") - 1;
+
+            }
+        }
+        catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+
+        return sekretariatID;
+    }
+
+    public static int getVerwaltungspersonalID(){
+        String query = "SELECT seq FROM sqlite_sequence WHERE name ='Verwaltungspersonal'";
+        int verwaltungspersonalID = 0;
+        try {
+            pstmt = DB.conn.prepareStatement(query);
+            rs = pstmt.executeQuery();
+            while(rs.next()){
+                verwaltungspersonalID = rs.getInt("seq");
+
+            }
+        }
+        catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+
+        return verwaltungspersonalID;
+    }
+
+    public static int getIncreasedVerwaltungspersonalID(){
+        String query = "SELECT seq FROM sqlite_sequence WHERE name ='Verwaltungspersonal'";
+        int verwaltungspersonalID = 0;
+        try {
+            pstmt = DB.conn.prepareStatement(query);
+            rs = pstmt.executeQuery();
+            while(rs.next()){
+                verwaltungspersonalID = rs.getInt("seq") + 1;
+
+            }
+        }
+        catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+
+        return verwaltungspersonalID;
+    }
+
+    public static int decreaseVerwaltungspersonalID(){
+        String query = "SELECT seq FROM sqlite_sequence WHERE name ='Verwaltungspersonal'";
+        int verwaltungspersonalID = 0;
+        try {
+            pstmt = DB.conn.prepareStatement(query);
+            rs = pstmt.executeQuery();
+            while(rs.next()){
+                verwaltungspersonalID = rs.getInt("seq") - 1;
+
+            }
+        }
+        catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+
+        return verwaltungspersonalID;
     }
 
 
@@ -171,30 +457,6 @@ public class DB {
         }
 
     }
-    public static int decreasePatientID(){
-        int id = 0;
-        String query = "SELECT seq FROM sqlite_sequence WHERE name = 'Patient'";
-
-        try {
-            pstmt = DB.conn.prepareStatement(query);
-            rs = pstmt.executeQuery();
-
-            while(rs.next()){
-            id = rs.getInt("seq") - 1;
-
-            }
-
-        }
-        catch(SQLException e) {
-            System.out.println(e.getMessage());
-        }
-        return id;
-    }
-
-
-
-
-
 
     public static void insertDecreasedDoctorID(){
         int doctorID = decreaseDoctorID();
@@ -234,7 +496,7 @@ public class DB {
 
     public static void insertDecreasedSecretaryID(){
         int secretaryID = decreaseSecretaryID();
-        String query = "UPDATE sqlite_sequence SET seq = ? WHERE name = 'Sekreteriat'";
+        String query = "UPDATE sqlite_sequence SET seq = ? WHERE name = 'Sekretariat'";
         try {
             pstmt = DB.conn.prepareStatement(query);
             pstmt.setInt(1, secretaryID);
@@ -246,7 +508,7 @@ public class DB {
     }
     public static int decreaseSecretaryID(){
         int id = 0;
-        String query = "SELECT seq FROM sqlite_sequence WHERE name = 'Sekreteriat'";
+        String query = "SELECT seq FROM sqlite_sequence WHERE name = 'Sekretariat'";
 
         try {
             pstmt = DB.conn.prepareStatement(query);
@@ -319,42 +581,137 @@ public class DB {
 
     }
 
-
-
-
-
-
-
-
-
-
-
-    public static String[] findPatient(int PatientID2){
-        String Vorname = "", Name = "",Telefonnummer = "", Adresse ="", ID = "", SVN = "", Benutzername = "", Passwort = "";
+    public static String[] findPatient(int patientID2){
+        String vorname = "", name = "",telefonnummer = "", adresse ="", ID = "", SVN = "";
 
         try {
             String query = "SELECT * FROM Patient WHERE PatientID = ?";
 
                 pstmt = DB.conn.prepareStatement(query);
-                pstmt.setInt(1,PatientID2);
+                pstmt.setInt(1,patientID2);
                 rs = pstmt.executeQuery();
 
                 while(rs.next()){
-                    Vorname = rs.getString("Vorname");
-                    Name = rs.getString("Name");
-                    Telefonnummer = rs.getString("Telefonnummer");
-                    Adresse = rs.getString("Adresse");
+                    vorname = rs.getString("Vorname");
+                    name = rs.getString("Name");
+                    telefonnummer = rs.getString("Telefonnummer");
+                    adresse = rs.getString("Adresse");
                     ID = rs.getString("ID");
                     SVN = rs.getString("SVN");
-                    Benutzername = rs.getString("Benutzername");
-                    Passwort = rs.getString("Passwort");
                 }
 
         }
         catch(SQLException e) {
             System.out.println(e.getMessage());
         }
-        return new String[]{Vorname,Name,Telefonnummer,Adresse,ID,SVN,Benutzername,Passwort};
+        return new String[]{vorname,name,telefonnummer,adresse,ID,SVN};
+    }
+
+    public static String[] findTermin(int terminID2){
+        String datum = "", arztName = "",patientName = "";
+
+        try {
+            String query = "SELECT * FROM Termin WHERE TerminID = ?";
+
+            pstmt = DB.conn.prepareStatement(query);
+            pstmt.setInt(1,terminID2);
+            rs = pstmt.executeQuery();
+
+            while(rs.next()){
+                datum = rs.getString("Datum");
+                arztName = rs.getString("ArztName");
+                patientName = rs.getString("PatientName");
+            }
+
+        }
+        catch(SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return new String[]{datum,arztName,patientName};
+    }
+
+    public static String[] findArzt(int arztID2){
+        String vorname = "", name = "",telefonnummer = "", adresse ="", ID = "", SVN = "", benutzername = "", passwort = "";
+
+        try {
+            String query = "SELECT * FROM Arzt WHERE ArztID = ?";
+
+            pstmt = DB.conn.prepareStatement(query);
+            pstmt.setInt(1,arztID2);
+            rs = pstmt.executeQuery();
+
+            while(rs.next()){
+                vorname = rs.getString("Vorname");
+                name = rs.getString("Name");
+                telefonnummer = rs.getString("Telefonnummer");
+                adresse = rs.getString("Adresse");
+                ID = rs.getString("ID");
+                SVN = rs.getString("SVN");
+                benutzername = rs.getString("Benutzername");
+                passwort = rs.getString("Passwort");
+            }
+
+        }
+        catch(SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return new String[]{vorname, name, telefonnummer, adresse, ID, SVN, benutzername, passwort};
+    }
+
+    public static String[] findSekretariat(int sekretariatID2){
+        String vorname = "", name = "",telefonnummer = "", adresse ="", ID = "", SVN = "", benutzername = "", passwort = "";
+
+        try {
+            String query = "SELECT * FROM Sekretariat WHERE SekretariatID = ?";
+
+            pstmt = DB.conn.prepareStatement(query);
+            pstmt.setInt(1,sekretariatID2);
+            rs = pstmt.executeQuery();
+
+            while(rs.next()){
+                vorname = rs.getString("Vorname");
+                name = rs.getString("Name");
+                telefonnummer = rs.getString("Telefonnummer");
+                adresse = rs.getString("Adresse");
+                ID = rs.getString("ID");
+                SVN = rs.getString("SVN");
+                benutzername = rs.getString("Benutzername");
+                passwort = rs.getString("Passwort");
+            }
+
+        }
+        catch(SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return new String[]{vorname, name, telefonnummer, adresse, ID, SVN, benutzername, passwort};
+    }
+
+    public static String[] findVerwaltungspersonal(int verwaltungspersonalID2){
+        String vorname = "", name = "",telefonnummer = "", adresse ="", ID = "", SVN = "", benutzername = "", passwort = "";
+
+        try {
+            String query = "SELECT * FROM Verwaltungspersonal WHERE VerwaltungspersonalID = ?";
+
+            pstmt = DB.conn.prepareStatement(query);
+            pstmt.setInt(1,verwaltungspersonalID2);
+            rs = pstmt.executeQuery();
+
+            while(rs.next()){
+                vorname = rs.getString("Vorname");
+                name = rs.getString("Name");
+                telefonnummer = rs.getString("Telefonnummer");
+                adresse = rs.getString("Adresse");
+                ID = rs.getString("ID");
+                SVN = rs.getString("SVN");
+                benutzername = rs.getString("Benutzername");
+                passwort = rs.getString("Passwort");
+            }
+
+        }
+        catch(SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return new String[]{vorname, name, telefonnummer, adresse, ID, SVN, benutzername, passwort};
     }
 
 

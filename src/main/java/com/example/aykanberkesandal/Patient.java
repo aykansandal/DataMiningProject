@@ -13,17 +13,11 @@ public class Patient extends Person {
 
     }
 
-    public int getPatientID() {
+    public  int getPatientID() {
         return patientID;
     }
     public void setPatientID(int patientID) {
         this.patientID = patientID;
     }
-    //TODO: BAK
-    /*public boolean getZustand() {
-        return zustand;
-    }
-    public void setZustand(boolean zustand) {
-        this.zustand = zustand;
-    }*/
+
 }
