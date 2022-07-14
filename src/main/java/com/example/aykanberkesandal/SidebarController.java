@@ -101,6 +101,7 @@ public class SidebarController {
                 root = FXMLLoader.load(getClass().getResource("Patient.fxml"));
                 apScreen.getChildren().removeAll();
                 apScreen.getChildren().add(root);
+                stage.setTitle("Patient");
                 patientController.refreshTable();
             }
             else if(userRolle.equals("Sekretariat")){
@@ -108,6 +109,7 @@ public class SidebarController {
                 apScreen.getChildren().removeAll();
                 apScreen.getChildren().add(root);
                 patientController.refreshTable();
+                stage.setTitle("Patient");
                 patientController.makeButtonsInvisible();
             }
             else{
@@ -130,12 +132,14 @@ public class SidebarController {
                 root = FXMLLoader.load(getClass().getResource( "Termin.fxml"));
                 apScreen.getChildren().removeAll();
                 apScreen.getChildren().add(root);
+                stage.setTitle("Termin");
                 terminController.refreshTable();
             }
             else if(userRolle.equals("Sekretariat")){
                 root = FXMLLoader.load(getClass().getResource( "Termin.fxml"));
                 apScreen.getChildren().removeAll();
                 apScreen.getChildren().add(root);
+                stage.setTitle("Termin");
                 terminController.refreshTable();
                 terminController.makeButtonsInvisible();
             }
@@ -159,12 +163,14 @@ public class SidebarController {
                 root = FXMLLoader.load(getClass().getResource( "Arzt.fxml"));
                 apScreen.getChildren().removeAll();
                 apScreen.getChildren().add(root);
+                stage.setTitle("Arzt");
                 arztController.refreshTable();
             }
             else if(userRolle.equals("Sekretariat")){
                 root = FXMLLoader.load(getClass().getResource( "Arzt.fxml"));
                 apScreen.getChildren().removeAll();
                 apScreen.getChildren().add(root);
+                stage.setTitle("Arzt");
                 arztController.refreshTable();
                 arztController.makeButtonsInvisible();
             }
@@ -188,12 +194,14 @@ public class SidebarController {
                 root = FXMLLoader.load(getClass().getResource( "Sekretariat.fxml"));
                 apScreen.getChildren().removeAll();
                 apScreen.getChildren().add(root);
+                stage.setTitle("Sekretariat");
                 sekretariatController.refreshTable();
             }
             else if(userRolle.equals("Sekretariat")){
                 root = FXMLLoader.load(getClass().getResource( "Sekretariat.fxml"));
                 apScreen.getChildren().removeAll();
                 apScreen.getChildren().add(root);
+                stage.setTitle("Sekretariat");
                 sekretariatController.refreshTable();
                 sekretariatController.makeButtonsInvisible();
             }
@@ -217,12 +225,14 @@ public class SidebarController {
                 root = FXMLLoader.load(getClass().getResource( "Verwaltungspersonal.fxml"));
                 apScreen.getChildren().removeAll();
                 apScreen.getChildren().add(root);
+                stage.setTitle("Verwaltungspersonal");
                 verwaltungspersonalController.refreshTable();
             }
             else if(userRolle.equals("Sekretariat")){
                 root = FXMLLoader.load(getClass().getResource( "Verwaltungspersonal.fxml"));
                 apScreen.getChildren().removeAll();
                 apScreen.getChildren().add(root);
+                stage.setTitle("Verwaltungspersonal");
                 verwaltungspersonalController.refreshTable();
                 verwaltungspersonalController.makeButtonsInvisible();
             }

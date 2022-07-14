@@ -41,7 +41,7 @@ public class DBListOps {
             ResultSet rs = statement.executeQuery(query);
             while(rs.next()){
                 //System.out.println(rs.getString("Vorname"));
-                Patient patient = new Patient(rs.getInt("PatientID"), rs.getString("Vorname"), rs.getString("Name"), rs.getString("Telefonnummer"), rs.getString("Adresse"), rs.getString("ID"));
+                Patient patient = new Patient(rs.getInt("PatientID"), rs.getString("Vorname"), rs.getString("Name"), rs.getString("Adresse"), rs.getString("Telefonnummer"), rs.getString("ID"));
                 oblist.add(patient);
             }
         }
