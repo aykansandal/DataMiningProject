@@ -89,7 +89,7 @@ public class SidebarController {
 
     @FXML
     private void loadHomepage(ActionEvent event) {
-        stage.setTitle("Startzeite");
+        stage.setTitle("Startseite");
         loadPage("Homepage");
     }
 
@@ -104,7 +104,7 @@ public class SidebarController {
                 stage.setTitle("Patient");
                 patientController.refreshTable();
             }
-            else if(userRolle.equals("Sekretariat")){
+            else if(userRolle.equals("Sekretariat") || userRolle.equals("Arzt")){
                 root = FXMLLoader.load(getClass().getResource("Patient.fxml"));
                 apScreen.getChildren().removeAll();
                 apScreen.getChildren().add(root);
@@ -128,14 +128,14 @@ public class SidebarController {
     private void loadAppointmentPage() {
         Parent root = null;
         try {
-            if(userRolle.equals("Verwaltungspersonal")){
+            if(userRolle.equals("Verwaltungspersonal") || userRolle.equals("Sekretariat") ){
                 root = FXMLLoader.load(getClass().getResource( "Termin.fxml"));
                 apScreen.getChildren().removeAll();
                 apScreen.getChildren().add(root);
                 stage.setTitle("Termin");
                 terminController.refreshTable();
             }
-            else if(userRolle.equals("Sekretariat")){
+            else if(userRolle.equals("Arzt")){
                 root = FXMLLoader.load(getClass().getResource( "Termin.fxml"));
                 apScreen.getChildren().removeAll();
                 apScreen.getChildren().add(root);

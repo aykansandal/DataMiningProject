@@ -22,6 +22,7 @@ public class TerminDelPopupController {
         Termin appointmentToBeRemoved = new Termin(Integer.parseInt(tfTerminUID.getText()),"","","");
         DBDelOps.deleteTermin(appointmentToBeRemoved);
         terminController.refreshTable();
+        DB.decreaseTerminID();
     }
 
     @FXML

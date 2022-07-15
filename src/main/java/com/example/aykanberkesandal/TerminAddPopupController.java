@@ -31,6 +31,7 @@ public class TerminAddPopupController {
         Termin termin = new Termin(Integer.parseInt(tfTerminUID.getText()),date,tfTerminArztName.getText(),tfTerminPatientName.getText());
         DBAddOps.insertTermin(termin);
         terminController.refreshTable();
+        DB.getIncreasedTerminID();
     }
 
     @FXML

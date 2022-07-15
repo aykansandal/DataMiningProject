@@ -31,6 +31,7 @@ public class ArztAddPopupController {
         DBAddOps.insertDoctor(arzt);
         DBAddOps.insertDoctorBP(arzt);
         arztController.refreshTable();
+        DB.getIncreasedArztID();
 
     }
 

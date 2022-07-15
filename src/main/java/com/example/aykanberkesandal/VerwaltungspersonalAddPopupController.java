@@ -31,6 +31,7 @@ public class VerwaltungspersonalAddPopupController {
         DBAddOps.insertManagementPersonnel(verwaltungspersonal);
         DBAddOps.insertManagementPersonnelBP(verwaltungspersonal);
         verwaltungspersonalController.refreshTable();
+        DB.getIncreasedVerwaltungspersonalID();
 
     }
 

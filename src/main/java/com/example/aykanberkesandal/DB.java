@@ -184,6 +184,37 @@ public class DB {
         return patientID;
     }
 
+    public static void setDecreasedPatientID(){
+        String query = "UPDATE sqlite_sequence SET seq = ? WHERE name ='Patient'";
+        try{
+            pstmt = DB.conn.prepareStatement(query);
+            pstmt.setInt(1, decreasePatientID());
+            pstmt.executeUpdate();
+        }
+        catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    public static int decreaseTerminID(){
+        String query = "SELECT seq FROM sqlite_sequence WHERE name ='Termin'";
+        int patientID = 0;
+        try {
+            pstmt = DB.conn.prepareStatement(query);
+            rs = pstmt.executeQuery();
+            while(rs.next()){
+                patientID = rs.getInt("seq") - 1;
+
+            }
+        }
+        catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+
+        return patientID;
+    }
+
     public static int getTerminID(){
         String query = "SELECT seq FROM sqlite_sequence WHERE name ='Termin'";
         int terminID = 0;
@@ -220,23 +251,7 @@ public class DB {
         return terminID;
     }
 
-    public static int decreaseTerminID(){
-        String query = "SELECT seq FROM sqlite_sequence WHERE name ='Termin'";
-        int terminID = 0;
-        try {
-            pstmt = DB.conn.prepareStatement(query);
-            rs = pstmt.executeQuery();
-            while(rs.next()){
-                terminID = rs.getInt("seq") - 1;
 
-            }
-        }
-        catch(SQLException e){
-            System.out.println(e.getMessage());
-        }
-
-        return terminID;
-    }
 
     public static int getArztID(){
         String query = "SELECT seq FROM sqlite_sequence WHERE name ='Arzt'";

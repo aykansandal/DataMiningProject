@@ -77,7 +77,7 @@ public class LoginController {
     public void switchToHomepage(ActionEvent event) throws IOException {
         root = FXMLLoader.load(Application.class.getResource("Mainpage.fxml"));
         stage =(Stage)(buttonLogin.getScene().getWindow());
-        stage.setTitle("Startzeite");
+        stage.setTitle("Startseite");
         //stage.setResizable(false); TODO: Decide if you want it resizable
         scene = new Scene(root);
         //stage.hide();

@@ -31,6 +31,7 @@ public class SekretariatAddPopupController {
         DBAddOps.insertSecretary(sekretariat);
         DBAddOps.insertSecretaryBP(sekretariat);
         sekretariatController.refreshTable();
+        DB.getIncreasedSekretariatID();
 
     }
 

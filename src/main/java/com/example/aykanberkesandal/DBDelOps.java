@@ -61,6 +61,20 @@ public class DBDelOps {
         }
     }
 
+    /*public static void deleteDoctorBP(Arzt arzt) {
+        String query = "DELETE FROM Benutzer WHERE Benutzername = ? AND Passwort = ? AND Rolle = ?";
+
+        try {
+            pstmt = DB.conn.prepareStatement(query);
+            pstmt.setString(1,arzt.getBenutzername());
+            pstmt.setString(2, arzt.getPasswort());
+            pstmt.setInt(1, 2);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }*/
+
     public static void deleteSecretary(Sekretariat sekretariat) {
         //insertDecreasedSecretaryID();
         String query = "DELETE FROM Sekretariat WHERE SekretariatID = ?";

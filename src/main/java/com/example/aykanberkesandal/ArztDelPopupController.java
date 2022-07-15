@@ -29,8 +29,10 @@ public class ArztDelPopupController {
 
     @FXML
     private void deleteDoctor(){
+        //Arzt doctorToBeRemoved = new Arzt(Integer.parseInt(tfArztUID2.getText()),"","","","","","",tfArztBenutzername.getText(),tfArztPasswort.getText());
         Arzt doctorToBeRemoved = new Arzt(Integer.parseInt(tfArztUID2.getText()),"","","","","","","","");
         DBDelOps.deleteDoctor(doctorToBeRemoved);
+        //DBDelOps.deleteDoctorBP(doctorToBeRemoved);
         arztController.refreshTable();
         DB.decreaseDoctorID();
 
